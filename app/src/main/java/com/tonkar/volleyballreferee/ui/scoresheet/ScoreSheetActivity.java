@@ -56,37 +56,38 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // 1) Read the flag FIRST
         boolean preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
-    
-        // 2) Try to get a stored game if an id was provided (may be null here)
+
         String gameId = getIntent().getStringExtra("game");
         StoredGamesService sgs = new StoredGamesManager(this);
-        mStoredGame = (gameId != null && !gameId.isEmpty()) ? sgs.getGame(gameId) : null;
     
-        // 3) Normal Android setup
+        // REPLACE your old assignment with this fallback:
+        mStoredGame = (gameId != null && !gameId.isEmpty())
+                ? sgs.getGame(gameId)
+                : sgs.getCurrentGame();                      // <-- read the snapshot we just saved
+    
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_sheet);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     
-        // 4) If we DO have a stored game, build the sheet now
-        if (mStoredGame != null) {
-            mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
-        }
-    
-        // 5) Only bail out when we have NO game AND we are NOT in pre-sign mode
         if (mStoredGame == null && !preSignMode) {
             Toast.makeText(this, R.string.no_game_to_display, Toast.LENGTH_LONG).show();
             finish();
             return;
         }
     
-        // 6) Toolbar, buttons, etc. (unchanged from your file)
+        if (mStoredGame != null) {
+            mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
+        }
+    
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
-        UiUtils.updateToolbarLogo(toolbar,
-                (mStoredGame != null ? mStoredGame.getKind() : GameType.INDOOR),  // safe default
-                UsageType.NORMAL);
+        UiUtils.updateToolbarLogo(
+                toolbar,
+                (mStoredGame != null ? mStoredGame.getKind()
+                                     : com.tonkar.volleyballreferee.engine.game.GameType.INDOOR),
+                UsageType.NORMAL
+        );
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
@@ -95,24 +96,13 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
         mSyncLayout.setEnabled(false);
         mWebView = findViewById(R.id.score_sheet);
     
-        // Only render the HTML when a stored game exists
         if (mStoredGame != null) {
             loadScoreSheet(false);
         }
     
-        FloatingActionButton logoButton = findViewById(R.id.score_sheet_logo_button);
-        logoButton.setOnClickListener(v -> selectScoreSheetLogo());
-    
         FloatingActionButton signatureButton = findViewById(R.id.sign_score_sheet_button);
         signatureButton.setOnClickListener(v -> showSignatureDialog());
     
-        FloatingActionButton observationButton = findViewById(R.id.score_sheet_observation_button);
-        observationButton.setOnClickListener(v -> showObservationDialog());
-    
-        FloatingActionButton saveButton = findViewById(R.id.save_score_sheet_button);
-        saveButton.setOnClickListener(v -> createPdfScoreSheet());
-    
-        // 7) Pre-sign: open the dialog immediately (no “no game” banner)
         if (preSignMode) {
             findViewById(android.R.id.content).post(this::showSignatureDialog);
             Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
