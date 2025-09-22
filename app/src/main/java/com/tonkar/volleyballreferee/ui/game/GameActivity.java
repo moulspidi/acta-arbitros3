@@ -1,6 +1,6 @@
 package com.tonkar.volleyballreferee.ui.game;
+
 import android.content.Intent;
-import com.tonkar.volleyballreferee.ui.scoresheet.ScoreSheetActivity;
 import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
 
@@ -36,16 +36,13 @@ import com.tonkar.volleyballreferee.ui.game.sanction.*;
 import com.tonkar.volleyballreferee.ui.game.substitution.SubstitutionsFragment;
 import com.tonkar.volleyballreferee.ui.game.timeout.*;
 import com.tonkar.volleyballreferee.ui.interfaces.*;
+import com.tonkar.volleyballreferee.ui.scoresheet.ScoreSheetActivity;
 import com.tonkar.volleyballreferee.ui.util.UiUtils;
 
 import java.util.Locale;
 
-public class GameActivity extends AppCompatActivity 
-    implements ScoreListener, TimeoutListener, TeamListener, SanctionListener {
-
-    // add the two fields right after the opening brace
-    private boolean preSignCoaches = false;
-    private boolean askedPreSignOnce = false;
+public class GameActivity extends AppCompatActivity
+        implements ScoreListener, TimeoutListener, TeamListener, SanctionListener {
 
     private IGame              mGame;
     private StoredGamesService mStoredGamesService;
@@ -81,22 +78,26 @@ public class GameActivity extends AppCompatActivity
             }
         });
     }
-    // Starts the match and persists the current game.
+
+    /** Start match and persist current game using the service you already have. */
     private void startMatchFromPrompt() {
-        if (mGame != null && !mGame.isStarted()) {
-            mGame.startMatch();
-            // Persist current game (same service you already use elsewhere)
-            com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService s =
-                    new com.tonkar.volleyballreferee.engine.storage.games.StoredGamesManager(this);
-            s.createCurrentGame(mGame);
-            // update UI if your menus/buttons depend on started state
+        if (mGame != null) {
+            try {
+                // start the match if your engine supports it
+                mGame.startMatch();
+            } catch (Throwable t) {
+                Log.w(Tags.GAME_UI, "startMatch() threw but continuing to persist", t);
+            }
+            if (mStoredGamesService != null) {
+                // use your existing service (NOT engine.storage.games)
+                mStoredGamesService.createCurrentGame(mGame);
+            }
             invalidateOptionsMenu();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preSignCoaches = getIntent().getBooleanExtra("pre_sign_coaches", false);
-
         mStoredGamesService = new StoredGamesManager(this);
         mGame = mStoredGamesService.loadCurrentGame();
 
@@ -215,9 +216,11 @@ public class GameActivity extends AppCompatActivity
             }
         });
     }
+
+    /** Prompt at start: (1) Sign coaches first, (2) Start without signing, (3) Cancel. */
     private void onClickStartWithPrompt() {
         new AlertDialog.Builder(this)
-            .setTitle(R.string.start_match_title)            // add strings below if you don't have them
+            .setTitle(R.string.start_match_title)
             .setMessage(R.string.ask_pre_sign_coaches)
             .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
                 // Go to the Score Sheet and auto-open the signature dialog
@@ -226,12 +229,13 @@ public class GameActivity extends AppCompatActivity
                 startActivity(sheet);
             })
             .setNeutralButton(R.string.start_without_signing, (d, w) -> {
-                // your original start
+                // run your normal start flow
                 startMatchFromPrompt();
             })
             .setNegativeButton(android.R.string.cancel, null)
             .show();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -266,12 +270,13 @@ public class GameActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_game, menu);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // NOTE: This currently hooks the "game action menu" icon to the prompt.
+        // If you have a dedicated "Start" menu item, you can call onClickStartWithPrompt() there instead.
         if (item.getItemId() == R.id.action_game_action_menu) {
             onClickStartWithPrompt();
             return true;
@@ -373,7 +378,7 @@ public class GameActivity extends AppCompatActivity
             UiUtils.setAlertDialogMessageSize(alertDialog, getResources());
         } else {
             UiUtils.showNotification(findViewById(R.id.activity_game_content),
-                                     String.format(getString(R.string.all_timeouts_called), mGame.getTeamName(teamType)));
+                    String.format(getString(R.string.all_timeouts_called), mGame.getTeamName(teamType)));
         }
     }
 
@@ -406,7 +411,6 @@ public class GameActivity extends AppCompatActivity
         UiUtils.colorTeamButton(this, leftColor, mLeftTeamCardsButton);
 
         // Right
-
         mRightTeamNameText.setText(mGame.getTeamName(mTeamOnRightSide));
         int rightColor = mGame.getTeamColor(mTeamOnRightSide);
         UiUtils.colorTeamButton(this, rightColor, mRightTeamScoreButton);
@@ -544,13 +548,13 @@ public class GameActivity extends AppCompatActivity
         deleteToolbarCountdown();
         deleteFragmentCountdown();
         CountDownDialogFragment timeoutFragment = CountDownDialogFragment.newInstance(duration,
-                                                                                      String.format(getString(R.string.timeout_title),
-                                                                                                    mGame.getTeamName(teamType)));
+                String.format(getString(R.string.timeout_title),
+                        mGame.getTeamName(teamType)));
         timeoutFragment.show(getSupportFragmentManager(), "timeout");
 
         if (mGame.countRemainingTimeouts(teamType) == 0) {
             UiUtils.showNotification(findViewById(R.id.activity_game_content),
-                                     String.format(getString(R.string.all_timeouts_called), mGame.getTeamName(teamType)));
+                    String.format(getString(R.string.all_timeouts_called), mGame.getTeamName(teamType)));
         }
     }
 
@@ -560,7 +564,7 @@ public class GameActivity extends AppCompatActivity
             deleteToolbarCountdown();
             deleteFragmentCountdown();
             CountDownDialogFragment timeoutFragment = CountDownDialogFragment.newInstance(duration,
-                                                                                          getString(R.string.technical_timeout_title));
+                    getString(R.string.technical_timeout_title));
             timeoutFragment.show(getSupportFragmentManager(), "timeout");
         }
     }
@@ -571,7 +575,7 @@ public class GameActivity extends AppCompatActivity
             deleteToolbarCountdown();
             deleteFragmentCountdown();
             CountDownDialogFragment timeoutFragment = CountDownDialogFragment.newInstance(duration,
-                                                                                          getString(R.string.game_interval_title));
+                    getString(R.string.game_interval_title));
             timeoutFragment.show(getSupportFragmentManager(), "timeout");
         }
     }
@@ -703,17 +707,6 @@ public class GameActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(title);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (preSignCoaches && !askedPreSignOnce) {
-            askedPreSignOnce = true;
-            Intent sheet = new Intent(this, ScoreSheetActivity.class);
-            sheet.putExtra("pre_sign_coaches", true);
-            startActivity(sheet);
         }
     }
 }
