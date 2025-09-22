@@ -1,6 +1,7 @@
 package com.tonkar.volleyballreferee.ui.game;
 
 import com.tonkar.volleyballreferee.engine.service.StoredGamesManager;
+import com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService;
 import android.content.Intent;
 import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
@@ -221,20 +222,22 @@ public class GameActivity extends AppCompatActivity
     /** Prompt at start: (1) Sign coaches first, (2) Start without signing, (3) Cancel. */
     private void onClickStartWithPrompt() {
         new AlertDialog.Builder(this)
-            .setTitle(R.string.start_match_title)
-            .setMessage(R.string.ask_pre_sign_coaches)
-            .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-                    if (mStoredGamesService != null && mGame != null) {
-                        // persist a “current game” snapshot; safe even if match not started
-                        mStoredGamesService.createCurrentGame(mGame);
-                    }
-                    Intent sheet = new Intent(this, ScoreSheetActivity.class);
-                    sheet.putExtra("pre_sign_coaches", true);
-                    // don't pass a game id; we will allow null in ScoreSheetActivity
-                    startActivity(sheet);
-           })
-           .setNegativeButton(android.R.string.cancel, null)
-           .show();
+        .setTitle(R.string.start_match_title)
+        .setMessage(R.string.ask_pre_sign_coaches)
+        .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
+            // SAVE the game so the score sheet can read it
+            StoredGamesService store = new StoredGamesManager(this);
+            store.createCurrentGame(mGame);          // <-- critical line
+
+            Intent sheet = new Intent(this, ScoreSheetActivity.class);
+            sheet.putExtra("pre_sign_coaches", true);
+            startActivity(sheet);
+        })
+        .setNeutralButton(R.string.start_without_signing, (d, w) -> {
+            startMatchFromPrompt(); // your existing start+save logic
+        })
+        .setNegativeButton(android.R.string.cancel, null)
+        .show();
     }
 
     @Override
