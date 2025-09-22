@@ -29,6 +29,7 @@
     <string name="sign_coaches_first">Sign coaches first</string>
     <string name="start_without_signing">Start without signing</string>
     <string name="pre_sign_coaches_hint">Select “Coach (Home)” and “Coach (Guest)” to sign before the match starts.</string>
+    <string name="no_game_to_display">No game to display. Start/Save a game first.</string>
 
     <!-- Main activity -->
     <string name="volleyball_game">Indoor volleyball</string>
