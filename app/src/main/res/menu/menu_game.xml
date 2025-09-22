@@ -6,4 +6,9 @@
         android:orderInCategory="1"
         android:title=""
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_start_match"
+        android:title="@string/start_match"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_play_arrow" />
 </menu>
