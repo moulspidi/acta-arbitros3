@@ -224,20 +224,18 @@ public class GameActivity extends AppCompatActivity
             .setTitle(R.string.start_match_title)
             .setMessage(R.string.ask_pre_sign_coaches)
             .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-               StoredGamesService s = new StoredGamesManager(this);
-               s.createCurrentGame(mGame);                  // no-op if already created
-        
-            // Use the live game's id as the stored game id (this exists on IGame)
-               String gameId = mGame.getId();
-        
-               Intent sheet = new Intent(this, ScoreSheetActivity.class);
-               sheet.putExtra("game", gameId);              // <-- pass ID!
-               sheet.putExtra("pre_sign_coaches", true);
-               startActivity(sheet)
+                    StoredGamesService s = new StoredGamesManager(this);
+                    s.createCurrentGame(mGame);
+                
+                    String gameId = mGame.getId();   // or whatever getter your IGame uses
+                    Intent sheet = new Intent(this, ScoreSheetActivity.class);
+                    sheet.putExtra("game", gameId);
+                    sheet.putExtra("pre_sign_coaches", true);
+                    startActivity(sheet);   // <-- add the semicolon here
             })
-           .setNeutralButton(R.string.start_without_signing, (d, w) -> {
-            startMatchFromPrompt(); // your code that starts + saves the game
-           })
+            .setNeutralButton(R.string.start_without_signing, (d, w) -> {
+                    startMatchFromPrompt();
+            })
            .setNegativeButton(android.R.string.cancel, null)
            .show();
     }
