@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    defaultConfig {
+        applicationId "com.tonkar.volleyballreferee"
+        minSdkVersion 24
+        targetSdkVersion 35
+        compileSdk 35
+        versionCode 40200
+        versionName "4.2.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString(), "room.expandProjection": "true"]
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    testOptions {
+        animationsDisabled = true
+    }
+
+    buildToolsVersion = '34.0.0'
+    namespace 'com.tonkar.volleyballreferee'
+    buildFeatures {
+        buildConfig true
+    }
+    compileSdk 35
+}
+
+dependencies {
+    def lombok_version = "1.18.36"
+    def app_compat_version = "1.7.0"
+    def refresh_layout_version = "1.1.0"
+    def constraint_layout_version = "2.2.0"
+    def flexbox_layout_version = "3.0.0"
+    def vector_drawable_version = "1.2.0"
+    def preference_version = "1.2.1"
+    def work_version = "2.10.0"
+    def room_version = "2.6.1"
+    def material_version = "1.12.0"
+    def nav_version = "2.8.4"
+    def gson_version = "2.11.0"
+    def okhttp_version = "4.12.0"
+    def jsoup_version = "1.18.3"
+    def app_intro_version = "6.2.0"
+    def apache_commons = "3.17.0"
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly "org.projectlombok:lombok:$lombok_version"
+    annotationProcessor "org.projectlombok:lombok:$lombok_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$refresh_layout_version"
+    implementation "androidx.vectordrawable:vectordrawable:$vector_drawable_version"
+    implementation "androidx.preference:preference:$preference_version"
+    implementation "androidx.work:work-runtime:$work_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "com.google.android.flexbox:flexbox:$flexbox_layout_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "org.jsoup:jsoup:$jsoup_version"
+    implementation "com.github.AppIntro:AppIntro:$app_intro_version"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "org.apache.commons:commons-lang3:$apache_commons"
+
+    def junit_version = "4.13.2"
+    def espresso_version = "3.6.1"
+    def test_rules_version = "1.6.1"
+    def ext_junit_version = "1.2.1"
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test:rules:$test_rules_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+}

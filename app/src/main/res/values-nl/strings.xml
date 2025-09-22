@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Volleyball Referee</string>
+
+    <!-- General actions -->
+    <string name="yes">Ja</string>
+    <string name="no">Neen</string>
+    <string name="resume">Hervat</string>
+    <string name="delete">Verwijder</string>
+    <string name="accept">Aanvaarden</string>
+    <string name="reject">Afwijzen</string>
+    <string name="remove">Verwijderen</string>
+    <string name="create">Creëer</string>
+    <string name="edit">Bewerk</string>
+    <string name="save">Opslaan</string>
+    <string name="start">Start</string>
+    <string name="undo">Ongedaan maken</string>
+    <string name="next">Volgende</string>
+
+    <!-- Main activity -->
+    <string name="volleyball_game">Indoorvolleybal</string>
+    <string name="beach_volleyball_game">Beachvolleybal</string>
+    <string name="snow_volleyball_game">Sneeuwvolleybal</string>
+    <string name="score_based_game">Scorebord</string>
+    <string name="resume_game_title">Spel hervatten</string>
+    <string name="resume_game_error">De wedstrijd kon niet worden hervat.</string>
+    <string name="my_data_group">Mijn data</string>
+    <string name="configuration_group">Configuratie</string>
+    <string name="completed_games">Voltooide wedstrijden</string>
+    <string name="available_games">Geplande &amp; live wedstrijden</string>
+    <string name="teams">Ploegen</string>
+    <string name="rules">Regels</string>
+    <string name="colleagues">Collega scheidsrechters</string>
+    <string name="live_games_vbr_com">Live wedstrijden op de website</string>
+    <string name="my_account">Mijn account</string>
+
+    <!-- User activity -->
+    <string name="user_sign_in">Aanmelden</string>
+    <string name="user_password_update">Update mijn wachtwoord</string>
+    <string name="user_sign_out">Uitloggen</string>
+    <string name="user_pseudo_hint">Scheidsrechter pseudoniem</string>
+    <string name="user_current_password_hint">Huidig wachtwoord</string>
+    <string name="user_password_hint">Wachtwoord</string>
+    <string name="user_new_password_hint">Nieuw wachtwoord</string>
+    <string name="user_confirm_new_password_hint">Bevestig nieuw wachtwoord</string>
+    <string name="user_password_not_matching">Wachtwoorden komen niet overeen</string>
+    <string name="user_password_error">Verkeerd wachtwoord</string>
+    <string name="user_locked_error">Account is 30 minuten vergrendeld na te veel mislukte pogingen om in te loggen</string>
+    <string name="user_request_error">Fout tijdens het verwerken van het verzoek</string>
+    <string name="user_signed_in_as_pseudo">Aangemeld als %s</string>
+    <string name="password_strength">Het wachtwoord moet minimaal 8 tekens bevatten, waaronder 1 hoofdletter, 1 cijfer en 1 speciaal teken</string>
+    <string name="password_strength_error">Wachtwoord voldoet niet aan de bovengenoemde criteria</string>
+    <string name="user_signed_out">Afgemeld</string>
+    <string name="search_colleague">Zoek een collega</string>
+    <string name="add_colleague">Voeg collega toe</string>
+    <string name="received_colleague_request">U heeft een collega-aanvraag ontvangen van %s</string>
+    <string name="sent_colleague_request">U hebt een collega-verzoek verzonden naar %s</string>
+    <string name="pending">In afwachting</string>
+    <string name="accept_colleague_question">Verzoek accepteren van collega %s?</string>
+    <string name="reject_colleague_question">Verzoek afwijzen van collega %s?</string>
+    <string name="remove_colleague_question">Verwijder collega %s?</string>
+
+    <!-- Setup activities -->
+    <string name="new_game_title">Wedstrijd instellen</string>
+    <string name="home_team_tab">Thuisploeg</string>
+    <string name="home_team_hint">Naam thuisploeg</string>
+    <string name="guest_team_tab">Uitploeg</string>
+    <string name="guest_team_hint">Naam uitploeg</string>
+    <string name="select_players">Selecteer de spelers</string>
+    <string name="select_players_with_liberos">Selecteer de spelers (inclusief de liberos)</string>
+    <string name="select_shirts_color">Selecteer de kleur van het shirt</string>
+    <string name="select_captain">Selecteer de kapitein</string>
+    <string name="select_libero">Selecteer de liberos (optioneel)</string>
+    <string name="select_gender">Selecteer het geslacht</string>
+    <string name="input_player_names">Voer de spelersnamen in (optioneel)</string>
+    <string name="confirm_game_setup_question">Bevestig je deze opstelling?</string>
+    <string name="gender_description">Geslacht</string>
+    <string name="league_name">Naam competitie / toernooi</string>
+    <string name="division_name">Divisie / poule naam</string>
+    <string name="misc_tab">Div.</string>
+    <string name="rules_tab">Regels</string>
+    <string name="teams_tab">Ploegen</string>
+    <string name="referee">Scheidsrechter</string>
+    <string name="leave_game_setup_question">Deze wedstrijdinstelling zal verloren gaan. Toch weggaan?</string>
+    <string name="must_provide_at_least_n_characters">U moet ten minste %d tekens opgeven</string>
+
+    <!-- Game activity -->
+    <string name="toss_tails">Munt</string>
+    <string name="toss_heads">Kop</string>
+    <string name="toss_coin">Een munt opgooien</string>
+    <string name="swap_first_service">Eerste opslag wisselen</string>
+    <string name="navigate_home">Terug naar de startpagina</string>
+    <string name="reset_set">Reset huidige set</string>
+    <string name="reset_set_question">De huidige set wordt opnieuw gestart en alle acties gaan verloren. Reset?</string>
+    <string name="navigate_home_question">Je kan de huidige wedstrijd later hervatten. Weggaan?</string>
+    <string name="select_player_title">Selecteer een speler vanop de bank</string>
+    <string name="court_position_tab">Posities</string>
+    <string name="ladder_tab">Punten</string>
+    <string name="substitutions_tab">Vervangingen</string>
+    <string name="timeouts_tab">Time-outs</string>
+    <string name="set_number">Set %d</string>
+    <string name="set_duration">%d min</string>
+    <string name="switch_sides">Van kant wisselen</string>
+    <string name="won_game">%s won de wedstrijd</string>
+    <string name="timeout_title">Time-out (%s)</string>
+    <string name="timeout_question">Time-out aanvragen?</string>
+    <string name="technical_timeout_title">Technische time-out</string>
+    <string name="game_interval_title">Spelonderbreking</string>
+    <string name="skip">Overslaan</string>
+    <string name="run_background">Laten lopen op de achtergrond</string>
+    <string name="switch_sides_description">Handmatig wisselen van kant</string>
+    <string name="remove_point_description">Laatste punt verwijderen</string>
+    <string name="call_timeout_description">Time-out aanvragen</string>
+    <string name="match_point">Matchbal</string>
+    <string name="set_point">Setbal</string>
+    <string name="confirm_lineup_title">Startopstelling</string>
+    <string name="confirm_team_lineup_question">Bevestig je deze beginopstelling voor %s in deze set?</string>
+    <string name="no_substitution_message">Geen vervanging beschikbaar</string>
+    <string name="confirm_set_question">Bevestig je dit punt?</string>
+    <string name="all_timeouts_called">%s heeft geen beschikbare time-out meer</string>
+    <string name="all_substitutions_used">%s heeft geen vervaningen meer</string>
+    <string name="one_remaining_substitution">%s heeft 1 resterende vervanging</string>
+    <string name="sanctions_tab">Sancties</string>
+    <string name="sanction">Sanctie (%s)</string>
+    <string name="delay_sanction">Spelvertraging</string>
+    <string name="misconduct_sanction">Wangedrag</string>
+    <string name="yellow_card">Eenvoudige waarschuwing</string>
+    <string name="red_card">Een punt en opslag aan de tegenstander</string>
+    <string name="red_card_expulsion">Uitwijzing voor de rest van de set</string>
+    <string name="red_card_disqualification">Uitsluiting voor de rest van de wedstrijd</string>
+    <string name="coach_abbreviation">C.</string>
+    <string name="set_lost_incomplete">De set is verloren door %s omdat de ploeg onvolledig is</string>
+    <string name="match_lost_incomplete">De wedstrijd is verloren door %s omdat de ploeg onvolledig is</string>
+    <string name="position_1_title">I</string>
+    <string name="position_2_title">II</string>
+    <string name="position_3_title">III</string>
+    <string name="position_4_title">IV</string>
+    <string name="position_5_title">V</string>
+    <string name="position_6_title">VI</string>
+    <string name="timeout">Time-out</string>
+    <string name="substitution">Vervanging</string>
+
+    <!-- Scheduled games activity -->
+    <string name="delete_match">Verwijder de wedstrijd</string>
+    <string name="reschedule_match">Verander de wedstrijd</string>
+    <string name="edit_start_match">Bewerk en start de wedstrijd</string>
+    <string name="start_match">Start de wedstrijd</string>
+    <string name="resume_match">Hervat de wedstrijd</string>
+    <string name="download_match_error">Fout tijdens het downloaden van de match</string>
+
+    <!-- Settings activity -->
+    <string name="settings">Instellingen</string>
+    <string name="pref_keep_screen_on">Houd het scherm aan tijdens wedstrijden</string>
+    <string name="pref_night_mode">Thema</string>
+
+    <string name="synchronize">Synchroniseer</string>
+    <string name="sync_succeeded_message">Gegevenssynchronisatie is gelukt</string>
+    <string name="sync_failed_message">Gegevenssynchronisatie mislukt</string>
+
+    <!-- Stored games activity -->
+    <string name="search_games">Zoek wedstrijden</string>
+    <string name="delete_selected_games">Verwijder alle wedstrijden</string>
+    <string name="delete_game">Verwijder wedstrijd</string>
+    <string name="delete_selected_games_question">Wil je alle wedstrijden verwijderen?</string>
+    <string name="delete_game_question">Wil je deze wedstrijd verwijderen?</string>
+    <string name="deleted_game">Wedstrijd is verwijderd</string>
+    <string name="deleted_selected_games">Alle wedstrijden zijn verwijderd</string>
+    <string name="players">Spelers</string>
+    <string name="create_score_sheet">Creëer scoreblad</string>
+    <string name="score_sheet_exception">Kan het scoreblad niet maken of weergeven</string>
+    <string name="signatures">Handtekeningen</string>
+    <string name="coach">Coach</string>
+    <string name="captain">Kapitein</string>
+    <string name="scorer">Markeerder</string>
+    <string name="name">Naam</string>
+    <string name="remarks">Opmerkingen</string>
+
+    <!-- Stored teams activity -->
+    <string name="search_teams">Zoek ploegen</string>
+    <string name="delete_selected_teams">Verwijder alle ploegen</string>
+    <string name="delete_team">Verwijder ploeg</string>
+    <string name="save_team">Bewaar ploeg</string>
+    <string name="delete_selected_teams_question">Wilt u alle ploegen verwijderen?</string>
+    <string name="delete_team_question">Wilt u deze ploeg verwijderen?</string>
+    <string name="deleted_team">Ploeg is verwijderd</string>
+    <string name="saved_team">Ploeg is opgeslagen</string>
+    <string name="deleted_teams">Alle ploegen zijn verwijderd</string>
+    <string name="leave_team_creation_title">Ploeg creatie verlaten</string>
+    <string name="leave_team_creation_question">Deze ploeg wordt niet opgeslagen. Toch verlaten?</string>
+
+    <!-- Stored rules activity -->
+    <string name="delete_selected_rules">Verwijder alle regels</string>
+    <string name="delete_rules">Verwijder regels</string>
+    <string name="save_rules">Regels opslaan</string>
+    <string name="search_rules">Regels zoeken</string>
+    <string name="delete_selected_rules_question">Wilt u alle regels verwijderen?</string>
+    <string name="delete_rules_question">Wilt u deze regels verwijderen?</string>
+    <string name="deleted_rules">Regels zijn verwijderd</string>
+    <string name="saved_rules">Regels zijn opgeslagen</string>
+    <string name="deleted_selected_rules">Alle regels zijn verwijderd</string>
+    <string name="leave_rules_creation_title">Verlaten van het maken van regels</string>
+    <string name="leave_rules_creation_question">Deze regels worden niet opgeslagen. Toch weggaan?</string>
+    <string name="rules_name_hint">Naam regels</string>
+    <string name="general_rules">Algemeen</string>
+
+    <string name="rules_points_per_set">Aantal punten per set</string>
+    <string name="rules_sets_per_game">Aantal sets per wedstrijd</string>
+    <string name="rules_tie_break">Tie-break in laatste set</string>
+    <string name="rules_points_in_tie_break">Aantal punten in tie-break</string>
+    <string name="rules_two_points_difference">2 punten verschil om set te winnen</string>
+    <string name="rules_sanctions">Sancties</string>
+    <string name="rules_match_termination">Beëindiging van de wedstrijd</string>
+    <string name="rules_team_timeouts">Ploeg time-outs</string>
+    <string name="rules_team_timeouts_per_set">Aantal ploeg time-outs per set</string>
+    <string name="rules_team_timeout_duration">Duur van een ploeg time-out</string>
+    <string name="rules_technical_timeouts">Technische time-outs</string>
+    <string name="rules_technical_timeout_duration">Duur van een technische time-out</string>
+    <string name="rules_game_intervals">Setonderbrekingen</string>
+    <string name="rules_game_intervals_duration">Duur van een setonderbreking</string>
+    <string name="rules_substitutions_limitation">Beperking van spelerswissels</string>
+    <string name="rules_team_substitutions_per_set">Aantal ploegvervangingen per set</string>
+    <string name="rules_consecutive_serves_per_player">Limiet van opeenvolgende opslagen per speler</string>
+    <string name="rules_court_switches">Kampwissels</string>
+    <string name="rules_court_switch_frequency">Frequentie kampwissels in normale set</string>
+    <string name="rules_court_switch_frequency_tie_break">Frequentie kampwissels in tie-break</string>
+
+    <string-array name="points_per_set_entries">
+        <item>Set van 40 punten</item>
+        <item>Set van 39 punten</item>
+        <item>Set van 38 punten</item>
+        <item>Set van 37 punten</item>
+        <item>Set van 36 punten</item>
+        <item>Set van 35 punten</item>
+        <item>Set van 34 punten</item>
+        <item>Set van 33 punten</item>
+        <item>Set van 32 punten</item>
+        <item>Set van 31 punten</item>
+        <item>Set van 30 punten</item>
+        <item>Set van 29 punten</item>
+        <item>Set van 28 punten</item>
+        <item>Set van 27 punten</item>
+        <item>Set van 26 punten</item>
+        <item>Set van 25 punten</item>
+        <item>Set van 24 punten</item>
+        <item>Set van 23 punten</item>
+        <item>Set van 22 punten</item>
+        <item>Set van 21 punten</item>
+        <item>Set van 20 punten</item>
+        <item>Set van 19 punten</item>
+        <item>Set van 18 punten</item>
+        <item>Set van 17 punten</item>
+        <item>Set van 16 punten</item>
+        <item>Set van 15 punten</item>
+        <item>Set van 14 punten</item>
+        <item>Set van 13 punten</item>
+        <item>Set van 12 punten</item>
+        <item>Set van 11 punten</item>
+        <item>Set van 10 punten</item>
+        <item>Set van 9 punten</item>
+    </string-array>
+    <string-array name="sets_per_game_entries">
+        <item>Wedstrijd van 5 sets</item>
+        <item>Wedstrijd van 4 sets</item>
+        <item>Wedstrijd van 3 sets</item>
+        <item>Wedstrijd van 2 sets</item>
+        <item>Wedstrijd van 1 set</item>
+    </string-array>
+    <string-array name="match_termination_entries">
+        <item>Voltooi de wedstrijd wanneer een team wint</item>
+        <item>Voltooi de wedstrijd wanneer alle sets zijn gespeeld</item>
+    </string-array>
+    <string-array name="team_timeouts_per_set_entries">
+        <item>3 ploeg time-outs per set</item>
+        <item>2 ploeg time-outs per set</item>
+        <item>1 ploeg time-out per set</item>
+        <item>Geen ploeg time-outs per set</item>
+    </string-array>
+    <string-array name="timeout_duration_entries">
+        <item>60 seconden</item>
+        <item>45 seconden</item>
+        <item>30 seconden</item>
+    </string-array>
+    <string-array name="game_interval_duration_entries">
+        <item>3 minuten</item>
+        <item>2 minuten</item>
+        <item>1 minuut</item>
+    </string-array>
+    <string-array name="substitutions_limitation_entries">
+        <item>FIVB beperking</item>
+        <item>Alternatieve beperking 1</item>
+        <item>Alternatieve beperking 2</item>
+        <item>Geen beperking</item>
+    </string-array>
+    <string-array name="substitutions_limitation_description_entries">
+        <item>Een speler van de beginopstelling mag het spel slecht éénmaal verlaten en per set terug aantreden en alleen op zijn/haar oorspronkelijke plaats in de opstelling.\n\nEen wisselspeler mag invallen in plaats van een basispeler. Dit mag maar éénmaal gebeuren per set en hij/zijn kan enkel vervangen worden door dezelfde basisspeler.</item>
+        <item>Een speler van de beginopstelling mag het spel meerdere keren verlaten en terug invallen. Dit mag per set onbeperkt gebeuren binnen het aantal toegestane wissels en alleen op zijn/haar oorspronkeleijke plaats in de opstelling.\n\nEen wisselspeler mag invallen in plaats van een basispeler. Dit mag per set onbeperkt gebeuren binnen het aantal toegestane wissels en hij/zij kan enkel vervangen worden door dezelfde basisspeler.</item>
+        <item>Een speler van de beginopstelling mag het spel meerdere keren verlaten en terug invallen. Dit mag per set onbeperkt gebeuren binnen het aantal toegestane wissels en alleen op zijn/haar oorspronkeleijke plaats in de opstelling.\n\nEen wisselspeler mag invallen in plaats van een basispeler. Dit mag per set onbeperkt gebeuren binnen het aantal toegestane wissels.\n\nMeer dan één wisselspeler mag per set gewisseld worden in elke positie.</item>
+        <item>Spelers kunnen het spel verlaten en opnieuw betreden op elke positie. Dit mag onbeperkt gebeuren per set set binnen het aantal toegestane wissels.</item>
+    </string-array>
+    <string-array name="team_substitutions_per_set_entries">
+        <item>18 wissels per set (volgens beperking van spelerswissels)</item>
+        <item>15 wissels per set (volgens beperking van spelerswissels)</item>
+        <item>12 wissels per set</item>
+        <item>6 wissels per set</item>
+        <item>5 wissels per set</item>
+        <item>4 wissels per set</item>
+        <item>3 wissels per set</item>
+        <item>2 wissels per set</item>
+    </string-array>
+    <string-array name="court_switch_frequency_entries">
+        <item>Wissel van veld elke 10 punten</item>
+        <item>Wissel van veld elke 9 punten</item>
+        <item>Wissel van veld elke 8 punten</item>
+        <item>Wissel van veld elke 7 punten</item>
+        <item>Wissel van veld elke 6 punten</item>
+        <item>Wissel van veld elke 5 punten</item>
+    </string-array>
+    <string-array name="consecutive_serves_per_player_entries">
+        <item>Onbeperkt</item>
+        <item>5 opslagen</item>
+        <item>4 opslagen</item>
+        <item>3 opslagen</item>
+        <item>2 opslagen</item>
+    </string-array>
+    <string-array name="night_mode_entries">
+        <item>Systeemstandaard</item>
+        <item>Licht</item>
+        <item>Donker</item>
+    </string-array>
+
+    <!-- Credits activity -->
+    <string name="credit_title">About the VBR Team</string>
+
+    <!-- Main activity onboarding -->
+    <string name="volleyball_game_description">Creëer een volledige 6x6 volleybalwedstrijd.\n\nJe kan hier je spelers, libero\'s, kapiteins, posities en regels configureren.</string>
+    <string name="beach_volleyball_game_description">Creëer in enkele seconden een volledige beachvolleybalwedstrijd.\n\nJe kan hier je kapiteins en regels configureren.</string>
+    <string name="score_based_game_description">Geen interesse in de configuratie van je spelers en posities?\n\nHier kan je snel een wedstrijd creëren.</string>
+    <string name="app_intro_next_button">@string/next</string>
+    <string name="app_intro_skip_button">@string/skip</string>
+    <string name="app_intro_done_button">@string/start</string>
+    <string name="home">Homepage</string>
+
+</resources>

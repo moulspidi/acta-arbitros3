@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Volleyball Referee</string>
+
+    <!-- General actions -->
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="resume">Continuar</string>
+    <string name="delete">Borrar</string>
+    <string name="accept">Aceptar</string>
+    <string name="reject">Rechazar</string>
+    <string name="remove">Eliminar</string>
+    <string name="create">Crear</string>
+    <string name="edit">Editar</string>
+    <string name="save">Salvar</string>
+    <string name="start">Comenzar</string>
+    <string name="undo">Deshacer</string>
+    <string name="next">Siguiente</string>
+
+    <!-- Main activity -->
+    <string name="volleyball_game">Voleibol</string>
+    <string name="beach_volleyball_game">Voley-Playa</string>
+    <string name="snow_volleyball_game">Voley-Nieve</string>
+    <string name="score_based_game">Marcador</string>
+    <string name="resume_game_title">Continuar partido</string>
+    <string name="resume_game_error">No se ha podido continuar el partido</string>
+    <string name="my_data_group">Mis datos</string>
+    <string name="configuration_group">Configuración</string>
+    <string name="completed_games">Partidos completados</string>
+    <string name="available_games">Partidos previstos y en directo</string>
+    <string name="teams">Equipos</string>
+    <string name="rules">Reglas</string>
+    <string name="colleagues">Compañeros</string>
+    <string name="live_games_vbr_com">Partidos en vivo en la web</string>
+    <string name="my_account">Mi cuenta</string>
+
+    <!-- User activity -->
+    <string name="user_sign_in">Entrar</string>
+    <string name="user_password_update">Cambiar contraseña</string>
+    <string name="user_sign_out">Salir</string>
+    <string name="user_pseudo_hint">Pseudónimo de árbitro</string>
+    <string name="user_current_password_hint">Contraseña actual</string>
+    <string name="user_password_hint">Contraseña</string>
+    <string name="user_new_password_hint">Contraseña nueva</string>
+    <string name="user_confirm_new_password_hint">Confirmar nueva contraseña</string>
+    <string name="user_password_not_matching">Las contraseñas no coinciden</string>
+    <string name="user_password_error">Contraseña errónea</string>
+    <string name="user_locked_error">Demasiados fallos de autenticación; la cuenta se bloqueará durante 30 minutos</string>
+    <string name="user_request_error">Error al procesar la petición</string>
+    <string name="user_signed_in_as_pseudo">Registrado como %s</string>
+    <string name="password_strength">La contraseña debe tener al menos 8 caracteres, incluyendo 1 mayúscula, 1 dígito y 1 carácter especial (símbolo)</string>
+    <string name="password_strength_error">La contraseña no cumple con los requisitos</string>
+    <string name="user_signed_out">Sesión terminada</string>
+    <string name="search_colleague">Buscar compañero</string>
+    <string name="add_colleague">Añadir compañero</string>
+    <string name="received_colleague_request">Has recibido una petición para ser compañero de %s</string>
+    <string name="sent_colleague_request">Has enviado una solicitud a %s</string>
+    <string name="pending">Pendiente</string>
+    <string name="accept_colleague_question">¿Aceptar solicitud de %s para ser compañeros?</string>
+    <string name="reject_colleague_question">¿Rechazar la solicitud de %s para ser compañeros?</string>
+    <string name="remove_colleague_question">¿Eliminar a %s como compañero?</string>
+
+    <!-- Setup activities -->
+    <string name="new_game_title">Nuevo juego</string>
+    <string name="home_team_tab">Equipo local</string>
+    <string name="home_team_hint">Nombre del equipo local</string>
+    <string name="guest_team_tab">Equipo visitante</string>
+    <string name="guest_team_hint">Nombre del equipo visitante</string>
+    <string name="select_players">Elige los jugadores</string>
+    <string name="select_players_with_liberos">Elige los jugadores (incluyendo los líberos)</string>
+    <string name="select_shirts_color">Selecciona color de la equipación</string>
+    <string name="select_captain">Elige al capitán</string>
+    <string name="select_libero">Elige los líberos (opcional)</string>
+    <string name="select_gender">Selecciona el género</string>
+    <string name="input_player_names">Introduce los nombres de los jugadores (opcional)</string>
+    <string name="confirm_game_setup_question">¿Confirmas esta configuración?</string>
+    <string name="gender_description">Género</string>
+    <string name="league_name">Nombre de la liga / torneo</string>
+    <string name="division_name">Nombre de división/grupo</string>
+    <string name="misc_tab">Varios</string>
+    <string name="rules_tab">Reglas</string>
+    <string name="teams_tab">Equipos</string>
+    <string name="referee">Árbitro</string>
+    <string name="leave_game_setup_question">Se perderán los cambios realizados. ¿Salir de todos modos?</string>
+    <string name="must_provide_at_least_n_characters">Debes introducir al menos %d caracteres</string>
+
+    <!-- Game activity -->
+    <string name="toss_tails">Cruz</string>
+    <string name="toss_heads">Cara</string>
+    <string name="toss_coin">Lanzar una moneda</string>
+    <string name="swap_first_service">Cambiar primer saque</string>
+    <string name="navigate_home">Volver al inicio</string>
+    <string name="reset_set">Reinicial set actual</string>
+    <string name="reset_set_question">El set actual se reiniciará, y todas las acciones se perderán. ¿Reiniciar?</string>
+    <string name="navigate_home_question">Puedes continuar el partido más tarde. ¿Salir?</string>
+    <string name="select_player_title">Seleccionar jugador del banquillo</string>
+    <string name="court_position_tab">Posiciones</string>
+    <string name="ladder_tab">Puntos</string>
+    <string name="substitutions_tab">Sustituciones</string>
+    <string name="timeouts_tab">Tiempos muertos</string>
+    <string name="set_number">Set %d</string>
+    <string name="set_duration">%d min</string>
+    <string name="switch_sides">Cambio de campo</string>
+    <string name="won_game">%s ganó el partido</string>
+    <string name="timeout_title">Tiempo Muerto (%s)</string>
+    <string name="timeout_question">¿Pedir tiempo muerto?</string>
+    <string name="technical_timeout_title">Tiempo técnico</string>
+    <string name="game_interval_title">Intervalo de partido</string>
+    <string name="skip">Saltar</string>
+    <string name="run_background">Ejecutar en segundo plano</string>
+    <string name="switch_sides_description">Cambiar de campo manualmente</string>
+    <string name="remove_point_description">Borrar último punto</string>
+    <string name="call_timeout_description">Pedir tiempo muerto</string>
+    <string name="match_point">Punto de partido</string>
+    <string name="set_point">Punto de set</string>
+    <string name="confirm_lineup_title">Alineación inicial</string>
+    <string name="confirm_team_lineup_question">¿Confirmas la alineación inicial de %s para este set?</string>
+    <string name="no_substitution_message">No quedan más sustituciones</string>
+    <string name="confirm_set_question">¿Confirmas este punto?</string>
+    <string name="all_timeouts_called">%s no puede pedir más tiempos muertos</string>
+    <string name="all_substitutions_used">%s no puede pedir más sustituciones</string>
+    <string name="one_remaining_substitution">A %s sólo le queda una substitución</string>
+    <string name="sanctions_tab">Sanciones</string>
+    <string name="sanction">Sanción (%s)</string>
+    <string name="delay_sanction">Demora</string>
+    <string name="misconduct_sanction">Conducta incorrecta</string>
+    <string name="yellow_card">Amonestación</string>
+    <string name="red_card">Punto y servicio para el oponente</string>
+    <string name="red_card_expulsion">Expulsión durante el resto del set</string>
+    <string name="red_card_disqualification">Descalificación para el resto del partido</string>
+    <string name="coach_abbreviation">C</string>
+    <string name="set_lost_incomplete">%s perdió el set por equipo incompleto</string>
+    <string name="match_lost_incomplete">%s perdió el partido por equipo incompleto</string>
+    <string name="position_1_title">I</string>
+    <string name="position_2_title">II</string>
+    <string name="position_3_title">III</string>
+    <string name="position_4_title">IV</string>
+    <string name="position_5_title">V</string>
+    <string name="position_6_title">VI</string>
+    <string name="timeout">Tiempos muertos</string>
+    <string name="substitution">Sustitución</string>
+
+    <!-- Scheduled games activity -->
+    <string name="delete_match">Borrar el partido</string>
+    <string name="reschedule_match">Cambiar fecha del partido</string>
+    <string name="edit_start_match">Editar y comenzar el partido</string>
+    <string name="start_match">Comenzar partido</string>
+    <string name="resume_match">Continuar el partido</string>
+    <string name="download_match_error">Error al descargar el partido</string>
+
+    <!-- Settings activity -->
+    <string name="settings">Ajustes</string>
+    <string name="pref_keep_screen_on">No apagar la pantalla durante los partidos</string>
+    <string name="pref_night_mode">Tema</string>
+
+    <string name="synchronize">Sincronizar</string>
+    <string name="sync_succeeded_message">Sincronización de datos completa</string>
+    <string name="sync_failed_message">Fallo al sincronizar</string>
+
+    <!-- Stored games activity -->
+    <string name="search_games">Buscar partidos</string>
+    <string name="delete_selected_games">Borrar todos los partidos</string>
+    <string name="delete_game">Borrar partido</string>
+    <string name="delete_selected_games_question">¿Quieres borrar todos los partidos?</string>
+    <string name="delete_game_question">¿Quieres borrar este partido?</string>
+    <string name="deleted_game">Partido borrado</string>
+    <string name="deleted_selected_games">Todos los partidos borrados</string>
+    <string name="players">Jugadores</string>
+    <string name="create_score_sheet">Crear acta</string>
+    <string name="score_sheet_exception">Fallo al crear o mostrar el acta</string>
+    <string name="signatures">Firmas</string>
+    <string name="coach">Entrenador</string>
+    <string name="captain">Capitán</string>
+    <string name="scorer">Anotador</string>
+    <string name="name">Nombre</string>
+    <string name="remarks">Observaciones</string>
+
+    <!-- Stored teams activity -->
+    <string name="search_teams">Buscar equipos</string>
+    <string name="delete_selected_teams">Borrar todos los equipos</string>
+    <string name="delete_team">Borrar equipo</string>
+    <string name="save_team">Guardar equipo</string>
+    <string name="delete_selected_teams_question">¿Quieres borrar todos los equipos?</string>
+    <string name="delete_team_question">¿Quieres borrar este equipo?</string>
+    <string name="deleted_team">Equipo borrado</string>
+    <string name="saved_team">Equipo salvado</string>
+    <string name="deleted_teams">Todos los equipos borrados</string>
+    <string name="leave_team_creation_title">Abandonar la creación del equipo</string>
+    <string name="leave_team_creation_question">Este equipo no se guardará. ¿Salir de todos modos?</string>
+
+    <!-- Stored rules activity -->
+    <string name="delete_selected_rules">Borrar todas las reglas</string>
+    <string name="delete_rules">Borrar reglas</string>
+    <string name="save_rules">Guardar reglas</string>
+    <string name="search_rules">Buscar reglas</string>
+    <string name="delete_selected_rules_question">¿Quieres borrar todas las reglas?</string>
+    <string name="delete_rules_question">¿Quieres borrar estas reglas?</string>
+    <string name="deleted_rules">Reglas borradas</string>
+    <string name="saved_rules">Reglas guardadas</string>
+    <string name="deleted_selected_rules">Todas las reglas borradas</string>
+    <string name="leave_rules_creation_title">Salir de la creación de reglas</string>
+    <string name="leave_rules_creation_question">Estas reglas no se guardarán. ¿Salir de todos modos?</string>
+    <string name="rules_name_hint">Nombre de las reglas</string>
+    <string name="general_rules">General</string>
+
+    <string name="rules_points_per_set">Puntos para ganar un set</string>
+    <string name="rules_sets_per_game">Sets por partido</string>
+    <string name="rules_tie_break">Tie-break en el último set</string>
+    <string name="rules_points_in_tie_break">Puntos en el tie-break</string>
+    <string name="rules_two_points_difference">Diferencia de 2 puntos para ganar el set</string>
+    <string name="rules_sanctions">Sanciones</string>
+    <string name="rules_match_termination">Finalización del partido</string>
+    <string name="rules_team_timeouts">Tiempos muertos de equipo</string>
+    <string name="rules_team_timeouts_per_set">Tiempos muertos por set</string>
+    <string name="rules_team_timeout_duration">Duración del tiempo muerto</string>
+    <string name="rules_technical_timeouts">Tiempos Técnicos</string>
+    <string name="rules_technical_timeout_duration">Duración del tiempo técnico</string>
+    <string name="rules_game_intervals">Intervalos</string>
+    <string name="rules_game_intervals_duration">Duración de un intervalo</string>
+    <string name="rules_substitutions_limitation">Reglas para las sustituciones</string>
+    <string name="rules_team_substitutions_per_set">Número de sustituciones por set</string>
+    <string name="rules_consecutive_serves_per_player">Límite de servicios consecutivos por jugador</string>
+    <string name="rules_court_switches">Cambios de campo</string>
+    <string name="rules_court_switch_frequency">Frecuencia de cambios en un set normal</string>
+    <string name="rules_court_switch_frequency_tie_break">Frecuencia de cambios en el tie-break</string>
+
+    <string-array name="points_per_set_entries">
+        <item>Set de 40 puntos</item>
+        <item>Set de 39 puntos</item>
+        <item>Set de 38 puntos</item>
+        <item>Set de 37 puntos</item>
+        <item>Set de 36 puntos</item>
+        <item>Set de 35 puntos</item>
+        <item>Set de 34 puntos</item>
+        <item>Set de 33 puntos</item>
+        <item>Set de 32 puntos</item>
+        <item>Set de 31 puntos</item>
+        <item>Set de 30 puntos</item>
+        <item>Set de 29 puntos</item>
+        <item>Set de 28 puntos</item>
+        <item>Set de 27 puntos</item>
+        <item>Set de 26 puntos</item>
+        <item>Set de 25 puntos</item>
+        <item>Set de 24 puntos</item>
+        <item>Set de 23 puntos</item>
+        <item>Set de 22 puntos</item>
+        <item>Set de 21 puntos</item>
+        <item>Set de 20 puntos</item>
+        <item>Set de 19 puntos</item>
+        <item>Set de 18 puntos</item>
+        <item>Set de 17 puntos</item>
+        <item>Set de 16 puntos</item>
+        <item>Set de 15 puntos</item>
+        <item>Set de 14 puntos</item>
+        <item>Set de 13 puntos</item>
+        <item>Set de 12 puntos</item>
+        <item>Set de 11 puntos</item>
+        <item>Set de 10 puntos</item>
+        <item>Set de 9 puntos</item>
+    </string-array>
+    <string-array name="sets_per_game_entries">
+        <item>Partido de 5 sets</item>
+        <item>Partido de 4 sets</item>
+        <item>Partido de 3 sets</item>
+        <item>Partido de 2 sets</item>
+        <item>Partido de 1 set</item>
+    </string-array>
+    <string-array name="match_termination_entries">
+        <item>El partido acaba cuando un equipo gana</item>
+        <item>El partido acaba cuando se han jugado todos los sets</item>
+    </string-array>
+    <string-array name="team_timeouts_per_set_entries">
+        <item>3 tiempos muertos por set</item>
+        <item>2 tiempos muertos por set</item>
+        <item>1 tiempo muerto por set</item>
+        <item>Sin tiempos muertos</item>
+    </string-array>
+    <string-array name="timeout_duration_entries">
+        <item>60 segundos</item>
+        <item>45 segundos</item>
+        <item>30 segundos</item>
+    </string-array>
+    <string-array name="game_interval_duration_entries">
+        <item>3 minutos</item>
+        <item>2 minutos</item>
+        <item>1 minuto</item>
+    </string-array>
+    <string-array name="substitutions_limitation_entries">
+        <item>Sustituciones FIVB</item>
+        <item>Sustituciones alternativas 1</item>
+        <item>Sustituciones alternativas 2</item>
+        <item>Sin restricciones</item>
+    </string-array>
+    <string-array name="substitutions_limitation_description_entries">
+        <item>Un jugador titular puede salir del juego, sólo una vez en el set, y volver a entrar, pero sólo una vez en el set y únicamente a su posición previa en la formación inicial.\n\nUn jugador suplente puede ingresar al juego para reemplazar a un jugador titular, pero sólo una vez en el set, y a su vez, solamente puede ser reemplazado por el mismo jugador titular.</item>
+        <item>Un jugador titular puede ser sustituido varias veces durante el set (sin exceder el número de sustituciones permitidas por equipo), y únicamente en su posición original en la rotación.\n\nUn jugador suplente puede ingresar al juego para reemplazar a un jugador titular varias veces durante el set (sin exceder el número de sustituciones permitidas por equipo), y sólo puede ser sustituido por el mismo jugador titular.</item>
+        <item>Un jugador titular puede ser sustituido varias veces durante el set (sin exceder el número de sustituciones permitidas por equipo), y únicamente en su posición original en la rotación.\n\nUn jugador suplente puede ingresar al juego para reemplazar a un jugador titular varias veces durante el set (sin exceder el número de sustituciones permitidas por equipo).\n\nMás de un suplente pueden entrar a jugar en cada posición.</item>
+        <item>Los jugadores pueden salir y entrar del juego en cualquier posición tantas veces como quieran, sin exceder el número de sustituciones permitidas por equipo.</item>
+    </string-array>
+    <string-array name="team_substitutions_per_set_entries">
+        <item>18 sustituciones por set (según restricciones de sustituciones)</item>
+        <item>15 sustituciones por set (según restricciones de sustituciones)</item>
+        <item>12 sustituciones por set</item>
+        <item>6 sustituciones por set</item>
+        <item>5 sustituciones por set</item>
+        <item>4 sustituciones por set</item>
+        <item>3 sustituciones por set</item>
+        <item>2 sustituciones por set</item>
+    </string-array>
+    <string-array name="court_switch_frequency_entries">
+        <item>Cambio de campo cada 10 puntos</item>
+        <item>Cambio de campo cada 9 puntos</item>
+        <item>Cambio de campo cada 8 puntos</item>
+        <item>Cambio de campo cada 7 puntos</item>
+        <item>Cambio de campo cada 6 puntos</item>
+        <item>Cambio de campo cada 5 puntos</item>
+    </string-array>
+    <string-array name="consecutive_serves_per_player_entries">
+        <item>Sin límite</item>
+        <item>5 saques</item>
+        <item>4 saques</item>
+        <item>3 saques</item>
+        <item>2 saques</item>
+    </string-array>
+    <string-array name="night_mode_entries">
+        <item>Predeterminado del sistema</item>
+        <item>Claro</item>
+        <item>Oscuro</item>
+    </string-array>
+
+    <!-- Credits activity -->
+    <string name="credit_title">Sobre el Equipo VBR</string>
+
+    <!-- Main activity onboarding -->
+    <string name="volleyball_game_description">Crear un partido completo de voleibol 6x6.\n\nEste modo te permite configurar jugadores, líberos, capitanes, posiciones y reglas.</string>
+    <string name="beach_volleyball_game_description">Crear un partido completo de voley-playa en cuestión de segundos.\n\nEste modo te permite configurar capitanes y reglas.</string>
+    <string name="score_based_game_description">¿No te interesa configurar jugadores y posiciones?\n\nEste modo te permite crear un partido rápido en un momento.</string>
+    <string name="app_intro_next_button">@string/next</string>
+    <string name="app_intro_skip_button">@string/skip</string>
+    <string name="app_intro_done_button">@string/start</string>
+    <string name="home">Inicio</string>
+
+</resources>

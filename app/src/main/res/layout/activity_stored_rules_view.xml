@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tonkar.volleyballreferee.ui.data.rules.StoredRulesViewActivity">
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/stored_rules_summary"
+        layout="@layout/stored_rules_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/stored_rules_summary"
+        android:layout_margin="@dimen/big_margin_size" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/edit_rules_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/fab_shift_default"
+        android:layout_marginTop="@dimen/fab_shift_default"
+        android:layout_marginEnd="@dimen/fab_shift_default"
+        android:layout_marginBottom="@dimen/fab_shift_default"
+        android:onClick="editRules"
+        android:text="@string/edit"
+        app:icon="@drawable/ic_edit" />
+
+</RelativeLayout>

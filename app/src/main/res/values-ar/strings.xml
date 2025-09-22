@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حكم الكرة الطائرة</string>
+
+    <!-- General actions -->
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="resume">إستئناف</string>
+    <string name="delete">مسح</string>
+    <string name="accept">قبول</string>
+    <string name="reject">رفض</string>
+    <string name="remove">إزالة</string>
+    <string name="create">إنشاء</string>
+    <string name="edit">تعديل</string>
+    <string name="save">حفظ</string>
+    <string name="start">بدأ</string>
+    <string name="undo">تراجع</string>
+    <string name="next">التالي</string>
+
+    <!-- Main activity -->
+    <string name="volleyball_game">كرة الطائرة صالات</string>
+    <string name="beach_volleyball_game">كرة الطائرة الشاطئية</string>
+    <string name="snow_volleyball_game">كرة الطائرة الثلجية</string>
+    <string name="score_based_game">لوحة النتائج</string>
+    <string name="resume_game_title">إستئناف المباراة</string>
+    <string name="resume_game_error">المباراة لا يمكن إستئنافها.</string>
+    <string name="my_data_group">بياناتي</string>
+    <string name="configuration_group">الإعدادات</string>
+    <string name="completed_games">المباريات المكتملة</string>
+    <string name="available_games">الجدول &amp; المباريات المباشرة</string>
+    <string name="teams">الفرق</string>
+    <string name="rules">القواعد</string>
+    <string name="colleagues">الزملاء</string>
+    <string name="live_games_vbr_com">المباريات المباشرة في الموقع</string>
+    <string name="my_account">حسابي</string>
+
+    <!-- User activity -->
+    <string name="user_sign_in">تسجيل الدخول</string>
+    <string name="user_password_update">تحديث كلمة المرور</string>
+    <string name="user_sign_out">تسجيل الخروج</string>
+    <string name="user_pseudo_hint">إسم الحكم المستعار</string>
+    <string name="user_current_password_hint">كلمة المرور الحالية</string>
+    <string name="user_password_hint">كلمة المرور</string>
+    <string name="user_new_password_hint">كلمة المرور الجديدة</string>
+    <string name="user_confirm_new_password_hint">تأكيد كلمة المرور الجديدة</string>
+    <string name="user_password_not_matching">كلمات المرور غير متطابق</string>
+    <string name="user_password_error">كلمة المرور خاطئة</string>
+    <string name="user_locked_error">الحساب مغلق لمدة 30 دقيقة بعد محاولات فاشلة كثيرة لتسجيل الدخول</string>
+    <string name="user_request_error">خطأ أثناء معالجة الطلب</string>
+    <string name="user_signed_in_as_pseudo">تسجيل الدخول ك %s</string>
+    <string name="password_strength">يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل ، بما في ذلك حرف كبير واحد ورقم واحد وحرف خاص واحد</string>
+    <string name="password_strength_error">كلمة المرور لا تفي بالمعايير المذكورة أعلاه</string>
+    <string name="user_signed_out">تسجيل الخروج</string>
+    <string name="search_colleague">البحث في الزملاء</string>
+    <string name="add_colleague">أضف زميل</string>
+    <string name="received_colleague_request">لقد تلقيت طلبًا من %s</string>
+    <string name="sent_colleague_request">لقد أرسلت طلبًا إلى %s</string>
+    <string name="pending">قيد الإنتظار</string>
+    <string name="accept_colleague_question">هل تقبل %s كزميل؟</string>
+    <string name="reject_colleague_question">رفض الطلب من %s?</string>
+    <string name="remove_colleague_question">حذف %s?</string>
+
+    <!-- Setup activities -->
+    <string name="new_game_title">إعداد المباراة</string>
+    <string name="home_team_tab">الفريق المضيف</string>
+    <string name="home_team_hint">اسم الفريق المضيف</string>
+    <string name="guest_team_tab">الفريق الضيف</string>
+    <string name="guest_team_hint">اسم الفريق الضيف</string>
+    <string name="select_players">حدد اللاعبين</string>
+    <string name="select_players_with_liberos">حدد اللاعبين (من ضمنهم اللاعب الحر)</string>
+    <string name="select_shirts_color">حدد لون ملابس الفريق</string>
+    <string name="select_captain">حدد قائد الفريق</string>
+    <string name="select_libero">حدد اللاعب الحر (إختياري)</string>
+    <string name="select_gender">حدد الجنس</string>
+    <string name="input_player_names">أدخل أسماء اللاعبين (إختياري)</string>
+    <string name="confirm_game_setup_question">هل أنت موافق على هذه الإعدادات</string>
+    <string name="gender_description">الجنس</string>
+    <string name="league_name">اسم الدوري / البطولة</string>
+    <string name="division_name">اسم القسم / التجمع</string>
+    <string name="misc_tab">متنوع</string>
+    <string name="rules_tab">القوانين</string>
+    <string name="teams_tab">الفرق</string>
+    <string name="referee">الحكم</string>
+    <string name="leave_game_setup_question">سيتم فقد إعداد هذه المباراة. اترك على أي حال؟</string>
+    <string name="must_provide_at_least_n_characters">يجب عليك تقديم %d أحرف على الأقل</string>
+
+    <!-- Game activity -->
+    <string name="toss_tails">الذيل</string>
+    <string name="toss_heads">الرأس</string>
+    <string name="toss_coin">إرم عملة</string>
+    <string name="swap_first_service">مبادلة أول إرسال</string>
+    <string name="navigate_home">العودة إلى الصفحة الرئيسية</string>
+    <string name="reset_set">إعادة تعيين الشوط الحالي</string>
+    <string name="reset_set_question">سيتم إعادة تشغيل الشوط الحالي وسيتم فقدان كل الإجراءات. إعادة تعيين؟</string>
+    <string name="navigate_home_question">يمكنك إستئناف المباراة الحالية في وقت لاحق. مغادرة؟</string>
+    <string name="select_player_title">إختر لاعب من البدلاء</string>
+    <string name="court_position_tab">المواقع</string>
+    <string name="ladder_tab">النقط</string>
+    <string name="substitutions_tab">التبديلات</string>
+    <string name="timeouts_tab">وقت مستقطع</string>
+    <string name="set_number">شوط %d</string>
+    <string name="set_duration">%d دقيقة</string>
+    <string name="switch_sides">تبديل الساحة</string>
+    <string name="won_game">%s فاز في المباراة</string>
+    <string name="timeout_title">إنتهاء الوقت (%s)</string>
+    <string name="timeout_question">طلب وقت مستقطع؟</string>
+    <string name="technical_timeout_title">وقت فني مستقطع</string>
+    <string name="game_interval_title">الفاصل الزمني بين الأشواط</string>
+    <string name="skip">تخطي</string>
+    <string name="run_background">تشغيل في الخلفية</string>
+    <string name="switch_sides_description">تبديل يدوي للساحة</string>
+    <string name="remove_point_description">حذف آخر نقطة</string>
+    <string name="call_timeout_description">طلب وقت مستقطع</string>
+    <string name="match_point">نقطة المباراة</string>
+    <string name="set_point">نقطة الشوط</string>
+    <string name="confirm_lineup_title">تشكيلة البداية</string>
+    <string name="confirm_team_lineup_question">هل تؤكد خط البداية هذا على %s في هذه الشوط؟</string>
+    <string name="no_substitution_message">لا يوجد بديل متاح</string>
+    <string name="confirm_set_question">هل تؤكد هذه النقطة؟</string>
+    <string name="all_timeouts_called">%s ليس لديه المزيد من الوقت المستقطع</string>
+    <string name="all_substitutions_used">%s ليس لدبه اي تبديلات متوفرة</string>
+    <string name="one_remaining_substitution">%s لديه بديل واحد متبقي</string>
+    <string name="sanctions_tab">عقوبات</string>
+    <string name="sanction">عقوبات (%s)</string>
+    <string name="delay_sanction">تأخير</string>
+    <string name="misconduct_sanction">سوء السلوك</string>
+    <string name="yellow_card">تحذير بسيط</string>
+    <string name="red_card">نقطة و إرسال للخصم</string>
+    <string name="red_card_expulsion">طرد ما تبقى من الشوط</string>
+    <string name="red_card_disqualification">طرد ما تبقى من المباراة</string>
+    <string name="coach_abbreviation">المدرب</string>
+    <string name="set_lost_incomplete">%s خسارة الشوط لكون الفريق غير مكتمل</string>
+    <string name="match_lost_incomplete">%s خسارة المباراة لكون الفريق غير مكتمل</string>
+    <string name="position_1_title">1</string>
+    <string name="position_2_title">2</string>
+    <string name="position_3_title">3</string>
+    <string name="position_4_title">4</string>
+    <string name="position_5_title">5</string>
+    <string name="position_6_title">6</string>
+    <string name="timeout">وقت مستقطع</string>
+    <string name="substitution">الإستبدال</string>
+
+    <!-- Scheduled games activity -->
+    <string name="delete_match">حذف المباراة</string>
+    <string name="reschedule_match">إعادة جدولة المباراة</string>
+    <string name="edit_start_match">عدل ثم إبدأ المباراة</string>
+    <string name="start_match">بدأ المباراة</string>
+    <string name="resume_match">@string/resume_game_title</string>
+    <string name="download_match_error">خطأ أثناء تنزيل المباراة</string>
+
+    <!-- Settings activity -->
+    <string name="settings">الإعدادات</string>
+    <string name="pref_keep_screen_on">الحفاظ على شاشة الهاتف مشتغلة أثناء المباراة</string>
+    <string name="pref_night_mode">التصميم</string>
+
+    <string name="synchronize">المزامنة</string>
+    <string name="sync_succeeded_message">تم تزامن البيانات</string>
+    <string name="sync_failed_message">فشل في مزامنة البيانات</string>
+
+    <!-- Stored games activity -->
+    <string name="search_games">البحث عن المباريات</string>
+    <string name="delete_selected_games">مسح جميع المباريات</string>
+    <string name="delete_game">مسح المباراة</string>
+    <string name="delete_selected_games_question">هل تريد مسح جميع المباريات المسجلة؟</string>
+    <string name="delete_game_question">هل تريد حذف هذه المباراة المسجلة؟</string>
+    <string name="deleted_game">تم مسح المباراة</string>
+    <string name="deleted_selected_games">تم مسح جميع المباريات</string>
+    <string name="players">اللاعبين</string>
+    <string name="create_score_sheet">إنشاء استمارة التسجيل</string>
+    <string name="score_sheet_exception">فشل في إنشاء أو عرض إستمارة التسجيل</string>
+    <string name="signatures">التوقيعات</string>
+    <string name="coach">المدرب</string>
+    <string name="captain">قائد الفريق</string>
+    <string name="scorer">المسجل</string>
+    <string name="name">الإسم</string>
+    <string name="remarks">ملاحظات</string>
+
+    <!-- Stored teams activity -->
+    <string name="search_teams">البحث عن الفرق</string>
+    <string name="delete_selected_teams">مسح جميع الفرق</string>
+    <string name="delete_team">مسح الفريق</string>
+    <string name="save_team">حفظ الفريق</string>
+    <string name="delete_selected_teams_question">هل تريد حذف جميع الفرق المحفوظة؟</string>
+    <string name="delete_team_question">هل تريد حذف هذا الفريق المحفوظ؟</string>
+    <string name="deleted_team">تم مسح الفريق</string>
+    <string name="saved_team">تم حفظ الفريق</string>
+    <string name="deleted_teams">تم مسح جميع الفرق</string>
+    <string name="leave_team_creation_title">مغادرة إنشاء الفريق</string>
+    <string name="leave_team_creation_question">لن يتم حفظ الفريق. هل تريد المغادرة بأي حال؟</string>
+
+    <!-- Stored rules activity -->
+    <string name="delete_selected_rules">حذف جميع القوانين</string>
+    <string name="delete_rules">حذف القوانين</string>
+    <string name="save_rules">حفظ القانون</string>
+    <string name="search_rules">البحث عن القوانين</string>
+    <string name="delete_selected_rules_question">هل تريد محو جميع القوانين المحفوظة؟</string>
+    <string name="delete_rules_question">هل تريد مسح هذه القوانين المحفوظة؟</string>
+    <string name="deleted_rules">تم حذف القوانين</string>
+    <string name="saved_rules">تم حفظ القوانين</string>
+    <string name="deleted_selected_rules">تم حذف جميع القوانين</string>
+    <string name="leave_rules_creation_title">مغادرة إنشاء القوانين</string>
+    <string name="leave_rules_creation_question">لن يتم حفظ هذه القوانين. اترك على أي حال؟</string>
+    <string name="rules_name_hint">اسم القانون</string>
+    <string name="general_rules">عام</string>
+
+    <string name="rules_points_per_set">عدد النقاط لكل شوط</string>
+    <string name="rules_sets_per_game">عدد الأشواط لكل مباراة</string>
+    <string name="rules_tie_break">كسر التعادل في المجموعة الأخيرة</string>
+    <string name="rules_points_in_tie_break">عدد النقاط في كسر التعادل</string>
+    <string name="rules_two_points_difference">فارق نقطتين للفوز بالمجموعة</string>
+    <string name="rules_sanctions">العقوبات</string>
+    <string name="rules_match_termination">إنهاء المباراة</string>
+    <string name="rules_team_timeouts">الوقت المستقطع للفريق</string>
+    <string name="rules_team_timeouts_per_set">عدد الأوقات المستقطعة للفريق لكل شوط</string>
+    <string name="rules_team_timeout_duration">مدة الوقت المستقطع للفريق</string>
+    <string name="rules_technical_timeouts">الوقت المستقطع الفني</string>
+    <string name="rules_technical_timeout_duration">مدة الوقت المستقطع الفني</string>
+    <string name="rules_game_intervals">فترات اللعبة</string>
+    <string name="rules_game_intervals_duration">مدة الفاصل الزمني للمباراة</string>
+    <string name="rules_substitutions_limitation">الحد من التبديلات</string>
+    <string name="rules_team_substitutions_per_set">عدد تبديلات الفريق لكل شوط</string>
+    <string name="rules_consecutive_serves_per_player">الحد من الإرسالات المتتالية لكل لاعب</string>
+    <string name="rules_court_switches">تبديل الساحة</string>
+    <string name="rules_court_switch_frequency">معدل النقاط لتغير الساحة في الأشواط العادية</string>
+    <string name="rules_court_switch_frequency_tie_break">معدل النقاط لتغير الساحة في شوط كسر التعادل</string>
+
+    <string-array name="points_per_set_entries">
+        <item>شوط من 40 نقطة</item>
+        <item>شوط من 39 نقطة</item>
+        <item>شوط من 38 نقطة</item>
+        <item>شوط من 37 نقطة</item>
+        <item>شوط من 36 نقطة</item>
+        <item>شوط من 35 نقطة</item>
+        <item>شوط من 34 نقطة</item>
+        <item>شوط من 33 نقطة</item>
+        <item>شوط من 32 نقطة</item>
+        <item>شوط من 31 نقطة</item>
+        <item>شوط من 30 نقطة</item>
+        <item>شوط من 29 نقطة</item>
+        <item>شوط من 28 نقطة</item>
+        <item>شوط من 27 نقطة</item>
+        <item>شوط من 26 نقطة</item>
+        <item>شوط من 25 نقطة</item>
+        <item>شوط من 24 نقطة</item>
+        <item>شوط من 23 نقطة</item>
+        <item>شوط من 22 نقطة</item>
+        <item>شوط من 21 نقطة</item>
+        <item>شوط من 20 نقطة</item>
+        <item>شوط من 19 نقطة</item>
+        <item>شوط من 18 نقطة</item>
+        <item>شوط من 17 نقطة</item>
+        <item>شوط من 16 نقطة</item>
+        <item>شوط من 15 نقطة</item>
+        <item>شوط من 14 نقطة</item>
+        <item>شوط من 13 نقطة</item>
+        <item>شوط من 12 نقطة</item>
+        <item>شوط من 11 نقطة</item>
+        <item>شوط من 10 نقطة</item>
+        <item>شوط من 9 نقطة</item>
+    </string-array>
+    <string-array name="sets_per_game_entries">
+        <item>مباراة من خمس اشواط</item>
+        <item>مباراة من أربعة اشواط</item>
+        <item>مباراة من ثلاث أشواط</item>
+        <item>مباراة من اثنين أشواط</item>
+        <item>مباراة من شوط واحد</item>
+    </string-array>
+    <string-array name="match_termination_entries">
+        <item>إنهاء المباراة عندما يفوز الفريق</item>
+        <item>إنهاء المباراة عندما يتم لعب كل الأشواط</item>
+    </string-array>
+    <string-array name="team_timeouts_per_set_entries">
+        <item>ثلاث أوقات مستقطعة للفريق كل شوط</item>
+        <item>وقتين مستقطعين للفريق كل شوط</item>
+        <item>وقت مستقطع واحد للفريق كل شوط</item>
+        <item>عدم وجود وقت مستقطع للفريق كل شوط</item>
+    </string-array>
+    <string-array name="timeout_duration_entries">
+        <item>60 ثانية</item>
+        <item>45 ثانية</item>
+        <item>30 ثانية</item>
+    </string-array>
+    <string-array name="game_interval_duration_entries">
+        <item>ثلاث دقائق</item>
+        <item>دقيقتين</item>
+        <item>دقيقة واحدة</item>
+    </string-array>
+    <string-array name="substitutions_limitation_entries">
+        <item>قيود إتحاد الكرة الطائرة</item>
+        <item>قيود بديلة 1</item>
+        <item>قيود بديلة 2</item>
+        <item>بدون قيود</item>
+    </string-array>
+    <string-array name="substitutions_limitation_description_entries">
+        <item>لاعب من التشكيلة الأساسية قد يترك المباراة, و لكن لمرة واحدة في الشوط, و يمكنه الرجوع, و لكن لمرة واحدة في الشوط, و لكن فقط مع زميله أو زميلتها في نفس الخطة.\n\nقد يدخل اللاعب البديل المباراة بدلاً من اللاعب من التشكيلة الأساسية, ولكن مرة واحدة لكل شوط, ولا يمكن استبداله إلا بنفس لاعب البداية.</item>
+        <item>لاعب من التشكيلة الأساسية قد يترك المباراة, عدة مرات في الشوط, و العودة, لعدد غير محدود من المرات لكل شوط ضمن عدد تبديلات الفريق المسموح بها, وفقط لوضعه السابق في التشكيلة.\n\nقد يدخل لاعب بديل في المباراة بدلاً من لاعب من التشكيلة الأساسية, لعدد غير محدود من المرات لكل شوط ضمن عدد تبديلات الفريق المسموح بها, ولا يمكن استبداله إلا بنفس لاعب البداية.</item>
+        <item>لاعب من التشكيلة الأساسية قد يترك المباراة, عدة مرات في الشوط, و العودة, لعدد غير محدود من المرات لكل شوط ضمن عدد تبديلات الفريق المسموح بها, وفقط لوضعه السابق في التشكيلة.\n\nقد يدخل لاعب بديل في المباراة بدلاً من لاعب من التشكيلة الأساسية, لعدد غير محدود من المرات لكل شوط ضمن عدد تبديلات الفريق المسموح بها.\n\nقد يقوم أكثر من بديل واحد بالدخول للشوط في كل موقعه الخاص.</item>
+        <item>يمكن للاعبين مغادرة المباراة و الرجوع إليها في أي موضع ، ولعدد غير محدود من المرات لكل شوط ضمن عدد تبديلات الفريق المسموح بها.</item>
+    </string-array>
+    <string-array name="team_substitutions_per_set_entries">
+        <item>18 تبديل لكل شوط ( وفقا لحدود التبديلات )</item>
+        <item>15 تبديل لكل شوط ( وفقا لحدود التبديلات )</item>
+        <item>12 تبديل لكل شوط</item>
+        <item>6 تبديلات لكل شوط</item>
+        <item>5 تبديلات لكل شوط</item>
+        <item>4 تبديلات لكل شوط</item>
+        <item>3 تبديلات لكل شوط</item>
+        <item>2 تبديلات لكل شوط</item>
+    </string-array>
+    <string-array name="court_switch_frequency_entries">
+        <item>تبديل جانب الملعب كل 10 نقاط</item>
+        <item>تبديل جانب الملعب كل 9 نقاط</item>
+        <item>تبديل جانب الملعب كل 8 نقاط</item>
+        <item>تبديل جانب الملعب كل 7 نقاط</item>
+        <item>تبديل جانب الملعب كل 6 نقاط</item>
+        <item>تبديل جانب الملعب كل 5 نقاط</item>
+    </string-array>
+    <string-array name="consecutive_serves_per_player_entries">
+        <item>غير محدود</item>
+        <item>خمس إرسالات</item>
+        <item>أربع إرسالات</item>
+        <item>ثلاث إرسالات</item>
+        <item>إرسالين</item>
+    </string-array>
+    <string-array name="night_mode_entries">
+        <item>الإعداد التلقائي للنظام</item>
+        <item>فاتح</item>
+        <item>داكن</item>
+    </string-array>
+
+    <!-- Credits activity -->
+    <string name="credit_title">حول فريق حكم الكرة الطائرة</string>
+
+    <!-- Main activity onboarding -->
+    <string name="volleyball_game_description">قم بإنشاء مباراة كرة طائرة كاملة 6 في 6.\n\يتيح لك هذا الوضع إعداد اللاعبين ، و اللاعبين الأحرار ، و قادة الفرق ، و المراكز و القوانين.</string>
+    <string name="beach_volleyball_game_description">قم بإنشاء مباراة كرة طائرة شاطئية كاملة في غضون ثوان.\n\nيتيح لك هذا الوضع تكوين قادة الفرق و القوانين.</string>
+    <string name="score_based_game_description">لست مهتمًا بإعداد اللاعبين و المراكز؟\n\nيتيح لك هذا الوضع إنشاء مباراة سريعة في لحظة.</string>
+    <string name="app_intro_next_button">@string/next</string>
+    <string name="app_intro_skip_button">@string/skip</string>
+    <string name="app_intro_done_button">@string/start</string>
+    <string name="home">الصفحة الرئيسية</string>
+
+</resources>

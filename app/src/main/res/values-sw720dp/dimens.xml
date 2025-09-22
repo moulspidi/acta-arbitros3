@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="big_text_size">22sp</dimen>
+    <dimen name="default_text_size">19sp</dimen>
+    <dimen name="small_text_size">15sp</dimen>
+
+    <dimen name="big_margin_size">24dp</dimen>
+    <dimen name="default_margin_size">12dp</dimen>
+    <dimen name="small_margin_size">6dp</dimen>
+    <dimen name="tiny_margin_size">3dp</dimen>
+
+    <dimen name="player_column_width">80dp</dimen>
+
+    <dimen name="set_title_margin_size">20dp</dimen>
+
+    <dimen name="score_point_size">72sp</dimen>
+    <dimen name="score_set_size">40sp</dimen>
+    <dimen name="court_position_size">40sp</dimen>
+
+    <dimen name="timeout_drawable_size">16dp</dimen>
+
+    <dimen name="number_text_elevation">2dp</dimen>
+
+    <dimen name="score_button_height">150dp</dimen>
+    <dimen name="game_button_size">60dp</dimen>
+    <dimen name="game_small_button_size">50dp</dimen>
+
+    <dimen tools:override="true" name="design_navigation_icon_padding">16dp</dimen>
+
+    <dimen name="sanction_size">32dp</dimen>
+    <dimen name="sanction_half_size">16dp</dimen>
+    <dimen name="sanction_max_width">64dp</dimen>
+
+    <dimen name="player_court_button_size">100dp</dimen>
+    <dimen name="indoor_court_y_margin">84dp</dimen>
+    <dimen name="beach_court_y_padding">56dp</dimen>
+    <dimen name="snow_court_y_padding">40dp</dimen>
+    <dimen name="court_x_padding">16dp</dimen>
+    <dimen name="court_event_size">28dp</dimen>
+    <dimen name="court_service_size">24dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">16sp</dimen>
+
+    <dimen name="fab_shift_first">90dp</dimen>
+    <dimen name="fab_shift_second">180dp</dimen>
+    <dimen name="fab_shift_third">270dp</dimen>
+    <dimen name="fab_shift_fourth">360dp</dimen>
+    <dimen name="fab_shift_default">32dp</dimen>
+
+    <dimen name="player_form_button_size">64dp</dimen>
+    <dimen name="form_button_size">60dp</dimen>
+    <dimen name="fab_icon_size">40dp</dimen>
+
+    <dimen name="elevation">2dp</dimen>
+
+    <dimen name="empty_fab_space">150dp</dimen>
+
+    <dimen name="signature_width">420dp</dimen>
+    <dimen name="signature_height">230dp</dimen>
+
+    <dimen name="chip_width">80dp</dimen>
+    <dimen name="chip_height">40dp</dimen>
+
+</resources>
