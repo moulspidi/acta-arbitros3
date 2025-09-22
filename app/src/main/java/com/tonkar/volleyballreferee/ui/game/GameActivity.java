@@ -275,14 +275,12 @@ public class GameActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // NOTE: This currently hooks the "game action menu" icon to the prompt.
-        // If you have a dedicated "Start" menu item, you can call onClickStartWithPrompt() there instead.
-        if (item.getItemId() == R.id.action_game_action_menu) {
-            onClickStartWithPrompt();
-            return true;
-        } else {
+               int id = item.getItemId();
+            if (id == R.id.action_start_match || id == R.id.action_game_action_menu) {
+                onClickStartWithPrompt();
+                return true;
+            }
             return super.onOptionsItemSelected(item);
-        }
     }
 
     private void showGameActionMenu() {
