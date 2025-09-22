@@ -81,7 +81,18 @@ public class GameActivity extends AppCompatActivity
             }
         });
     }
-
+    // Starts the match and persists the current game.
+    private void startMatchFromPrompt() {
+        if (mGame != null && !mGame.isStarted()) {
+            mGame.startMatch();
+            // Persist current game (same service you already use elsewhere)
+            com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService s =
+                    new com.tonkar.volleyballreferee.engine.storage.games.StoredGamesManager(this);
+            s.createCurrentGame(mGame);
+            // update UI if your menus/buttons depend on started state
+            invalidateOptionsMenu();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preSignCoaches = getIntent().getBooleanExtra("pre_sign_coaches", false);
@@ -216,7 +227,7 @@ public class GameActivity extends AppCompatActivity
             })
             .setNeutralButton(R.string.start_without_signing, (d, w) -> {
                 // your original start
-                startMatch();
+                startMatchFromPrompt();
             })
             .setNegativeButton(android.R.string.cancel, null)
             .show();
