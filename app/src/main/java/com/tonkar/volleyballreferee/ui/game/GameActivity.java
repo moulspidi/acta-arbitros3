@@ -1,5 +1,7 @@
 package com.tonkar.volleyballreferee.ui.game;
 
+import android.widget.Toast;
+
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.os.*;
@@ -37,9 +39,11 @@ import com.tonkar.volleyballreferee.ui.util.UiUtils;
 import java.util.Locale;
 
 public class GameActivity extends AppCompatActivity {
+    implements ScoreListener, TimeoutListener, TeamListener, SanctionListener {
+
+    // add the two fields right after the opening brace
     private boolean preSignCoaches = false;
     private boolean askedPreSignOnce = false;
- implements ScoreListener, TimeoutListener, TeamListener, SanctionListener {
 
     private IGame              mGame;
     private StoredGamesService mStoredGamesService;
