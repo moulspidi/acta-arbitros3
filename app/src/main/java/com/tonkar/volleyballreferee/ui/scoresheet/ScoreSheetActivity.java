@@ -35,6 +35,10 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
     private ScoreSheetBuilder mScoreSheetBuilder;
     private WebView           mWebView;
 
+    private com.tonkar.volleyballreferee.engine.game.IGame mGame;
+    private com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService mStoredGamesService;
+    private boolean preSignMode = false;
+
     private ActivityResultLauncher<Intent> mSelectScoreSheetLogoResultLauncher;
     private ActivityResultLauncher<Intent> mCreatePdfScoreSheetResultLauncher;
 
@@ -53,42 +57,22 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
 
             Log.i(Tags.SCORE_SHEET, "Create score sheet activity");
             setContentView(R.layout.activity_score_sheet);
-            boolean preSign = getIntent().getBooleanExtra("pre_sign_coaches", false);
-            if (preSign) {
-                // Try to call a method that might already exist in your project to open the coaches signature UI.
-                // We don't *require* it to exist; if it's not there, we just show a hint.
-                findViewById(android.R.id.content).post(() -> {
-                    boolean opened = false;
-                    try {
-                        // Common names you might have in your codebase:
-                        String[] candidates = {
-                                "showCoachSignatureDialog",
-                                "openCoachSignatureDialog",
-                                "openCoachesSignature",
-                                "showSignaturesDialog"
-                        };
-                        for (String name : candidates) {
-                            try {
-                                Method m = ScoreSheetActivity.this.getClass().getDeclaredMethod(name);
-                                m.setAccessible(true);
-                                m.invoke(ScoreSheetActivity.this);
-                                opened = true;
-                                break;
-                            } catch (NoSuchMethodException ignore) {
-                                // try next candidate
-                            }
-                        }
-                    } catch (Throwable ignore) {
-                        // fall through to Toast
-                    }
-                    if (!opened) {
-                        Toast.makeText(
-                                ScoreSheetActivity.this,
-                                getString(R.string.pre_sign_coaches_hint),
-                                Toast.LENGTH_LONG
-                        ).show();
-                    }
-                });
+            preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
+
+            // Load current game safely (may be null if not created yet)
+            mStoredGamesService = new com.tonkar.volleyballreferee.engine.storage.games.StoredGamesManager(this);
+            mGame = mStoredGamesService.loadCurrentGame();
+            if (mGame == null) {
+                // No game to attach signatures to -> exit gracefully
+                Toast.makeText(this, "No current game available.", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+            
+            // If we're coming for pre-sign, try to open the coach signature dialog automatically.
+            // If that dialog method doesn't exist in your app, we just show a hint Toast instead.
+            if (preSignMode) {
+                findViewById(android.R.id.content).post(this::tryOpenCoachSignatureDialog);
             }
 
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -175,7 +159,48 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    /////
+    private boolean canCollectCoachSignatures() {
+        // Allow signatures if the game is started OR we are in pre-sign mode.
+        try {
+            // If your IGame has isStarted(), use it; if not, this will just fall back to preSignMode.
+            java.lang.reflect.Method isStarted = mGame.getClass().getMethod("isStarted");
+            Object started = isStarted.invoke(mGame);
+            if (started instanceof Boolean && ((Boolean) started)) {
+                return true;
+            }
+        } catch (Throwable ignore) {}
+        return preSignMode;
+    }
+    private void tryOpenCoachSignatureDialog() {
+        boolean opened = false;
+        String[] candidates = {
+                "showCoachSignatureDialog",
+                "openCoachSignatureDialog",
+                "openCoachesSignature",
+                "showSignaturesDialog"
+        };
+        for (String name : candidates) {
+            try {
+                Method m = getClass().getDeclaredMethod(name);
+                m.setAccessible(true);
+                m.invoke(this);
+                opened = true;
+                break;
+            } catch (NoSuchMethodException ignore) {
+                // try next
+            } catch (Throwable t) {
+                // If a dialog exists but throws because match isn't started,
+                // we still fall back to the Toast below.
+            }
+        }
+        if (!opened) {
+            Toast.makeText(this,
+                    "Go to the Signatures section to capture coaches’ signatures.",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+    ////////
     private void selectScoreSheetLogo() {
         Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
         chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
