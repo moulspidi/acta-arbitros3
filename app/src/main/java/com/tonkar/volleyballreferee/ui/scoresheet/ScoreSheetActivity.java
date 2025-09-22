@@ -55,49 +55,66 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
 
    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
+        // must read this first
+        boolean preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
+    
+        // try to load a stored game if one was passed
+        String gameId = getIntent().getStringExtra("game");
+        StoredGamesService sgs = new StoredGamesManager(this);
+        IStoredGame mStoredGame = (gameId != null && !gameId.isEmpty()) ? sgs.getGame(gameId) : null;
+    
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_sheet);
     
-        preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
-    
-        // Always have the manager ready
-        StoredGamesService storedGames = new StoredGamesManager(this);
-    
-        // 1) Try to resolve a stored game by id (preferred path)
-        String gameId = getIntent().getStringExtra("game");
-        if (gameId != null) {
-            mStoredGame = storedGames.getGame(gameId);
+        // If we have a stored game, build the score sheet normally
+        if (mStoredGame != null) {
+            mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
         }
     
-        // 2) Fallback: if no id or not found, try the current (in-progress) game’s id
-        if (mStoredGame == null) {
-            IGame current = storedGames.loadCurrentGame();
-            if (current != null) {
-                String currentId = current.getId();
-                if (currentId != null) {
-                    mStoredGame = storedGames.getGame(currentId);
-                }
-            }
-        }
-    
-        // 3) If still nothing, bail out gracefully
-        if (mStoredGame == null) {
+        // If NO stored game and NOT pre-sign → behave like before and exit
+        if (mStoredGame == null && !preSignMode) {
             Toast.makeText(this, R.string.no_game_to_display, Toast.LENGTH_LONG).show();
             finish();
             return;
         }
     
-        // From here on, your existing setup
-        mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
-        // … set toolbar, buttons, mWebView, loadScoreSheet(false), etc …
+        // When we are in pre-sign mode we *stay* here even without a stored game.
+        // Set orientation and toolbar like usual
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setDisplayHomeAsUpEnabled(true);
     
-        // Auto-open the coach-sign dialog when we came from “Sign coaches first”
+        mSyncLayout = findViewById(R.id.score_sheet_sync_layout);
+        mSyncLayout.setEnabled(false);
+        mWebView = findViewById(R.id.score_sheet);
+    
+        // Only try to render the score sheet HTML when we actually have a stored game
+        if (mStoredGame != null) {
+            loadScoreSheet(false);
+        }
+    
+        FloatingActionButton logoButton = findViewById(R.id.score_sheet_logo_button);
+        logoButton.setOnClickListener(v -> selectScoreSheetLogo());
+    
+        FloatingActionButton signatureButton = findViewById(R.id.sign_score_sheet_button);
+        signatureButton.setOnClickListener(v -> showSignatureDialog());
+    
+        FloatingActionButton observationButton = findViewById(R.id.score_sheet_observation_button);
+        observationButton.setOnClickListener(v -> showObservationDialog());
+    
+        FloatingActionButton saveButton = findViewById(R.id.save_score_sheet_button);
+        saveButton.setOnClickListener(v -> createPdfScoreSheet());
+    
+        // Auto-open the coach signature dialog for pre-sign
         if (preSignMode) {
             findViewById(android.R.id.content).post(this::showSignatureDialog);
-            // Optional helper toast
             Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
         }
+    
+        // …keep your ActivityResult launchers exactly as you had them …
     }
 
     @Override
