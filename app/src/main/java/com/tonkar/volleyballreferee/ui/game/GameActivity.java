@@ -38,7 +38,7 @@ import com.tonkar.volleyballreferee.ui.util.UiUtils;
 
 import java.util.Locale;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity 
     implements ScoreListener, TimeoutListener, TeamListener, SanctionListener {
 
     // add the two fields right after the opening brace
