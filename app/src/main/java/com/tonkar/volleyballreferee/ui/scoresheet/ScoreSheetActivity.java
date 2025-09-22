@@ -36,7 +36,7 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
     private WebView           mWebView;
 
     private com.tonkar.volleyballreferee.engine.game.IGame mGame;
-    private com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService mStoredGamesService;
+    private com.tonkar.volleyballreferee.engine.service.StoredGamesService mStoredGamesService;
     private boolean preSignMode = false;
 
     private ActivityResultLauncher<Intent> mSelectScoreSheetLogoResultLauncher;
@@ -60,7 +60,7 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
             preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
 
             // Load current game safely (may be null if not created yet)
-            mStoredGamesService = new com.tonkar.volleyballreferee.engine.storage.games.StoredGamesManager(this);
+            mStoredGamesService = new com.tonkar.volleyballreferee.engine.service.StoredGamesManager(this);
             mGame = mStoredGamesService.loadCurrentGame();
             if (mGame == null) {
                 // No game to attach signatures to -> exit gracefully
