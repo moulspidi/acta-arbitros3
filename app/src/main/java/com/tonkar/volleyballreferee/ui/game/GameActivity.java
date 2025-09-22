@@ -1,5 +1,5 @@
 package com.tonkar.volleyballreferee.ui.game;
-
+import com.tonkar.volleyballreferee.ui.scoresheet.ScoreSheetActivity;
 import android.widget.Toast;
 
 import android.content.SharedPreferences;
@@ -682,8 +682,9 @@ public class GameActivity extends AppCompatActivity
         super.onResume();
         if (preSignCoaches && !askedPreSignOnce) {
             askedPreSignOnce = true;
-            findViewById(android.R.id.content).post(this::showSignatureDialog);
-            Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
+            Intent sheet = new Intent(this, ScoreSheetActivity.class);
+            sheet.putExtra("pre_sign_coaches", true);
+            startActivity(sheet);
         }
     }
 }
