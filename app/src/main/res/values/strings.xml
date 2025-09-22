@@ -24,6 +24,12 @@
     <string name="undo">Undo</string>
     <string name="next">Next</string>
 
+    <string name="start_match_title">Start match?</string>
+    <string name="ask_pre_sign_coaches">Do you want to collect coach signatures before starting?</string>
+    <string name="sign_coaches_first">Sign coaches first</string>
+    <string name="start_without_signing">Start without signing</string>
+    <string name="pre_sign_coaches_hint">Select “Coach (Home)” and “Coach (Guest)” to sign before the match starts.</string>
+
     <!-- Main activity -->
     <string name="volleyball_game">Indoor volleyball</string>
     <string name="home">Home</string>
@@ -467,6 +473,6 @@
     </string-array>
 
     <string name="import_teams">Import teams</string>
-    <string name="sign_coaches_first">Sign coaches first</string>
-    <string name="pre_sign_coaches_hint">Select “Coach (Home)” and “Coach (Guest)” to sign before the match starts.</string>
+    
+   
 </resources>
