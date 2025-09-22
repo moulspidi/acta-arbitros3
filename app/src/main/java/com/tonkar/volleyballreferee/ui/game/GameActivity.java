@@ -224,18 +224,19 @@ public class GameActivity extends AppCompatActivity
             .setTitle(R.string.start_match_title)
             .setMessage(R.string.ask_pre_sign_coaches)
             .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-                    StoredGamesService s = new StoredGamesManager(this);
-                    s.createCurrentGame(mGame);
+            // Make sure the "current game" is persisted (safe to call if it already exists)
+                    if (mStoredGamesService != null && mGame != null) {
+                        mStoredGamesService.createCurrentGame(mGame);
+                    }
                 
-                    String gameId = mGame.getId();   // or whatever getter your IGame uses
+                    // Use the game's id we’re playing right now
+                    String gameId = (mGame != null) ? mGame.getId() : null;
+                
                     Intent sheet = new Intent(this, ScoreSheetActivity.class);
-                    sheet.putExtra("game", gameId);
                     sheet.putExtra("pre_sign_coaches", true);
-                    startActivity(sheet);   // <-- add the semicolon here
-            })
-            .setNeutralButton(R.string.start_without_signing, (d, w) -> {
-                    startMatchFromPrompt();
-            })
+                    if (gameId != null) sheet.putExtra("game", gameId);
+                    startActivity(sheet);   // ← don’t forget this semicolon :)
+           })
            .setNegativeButton(android.R.string.cancel, null)
            .show();
     }
