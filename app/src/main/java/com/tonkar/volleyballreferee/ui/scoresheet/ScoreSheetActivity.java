@@ -60,11 +60,11 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
             preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
 
             // Load current game safely (may be null if not created yet)
-            mStoredGamesService = new com.tonkar.volleyballreferee.engine.service.StoredGamesManager(this);
+            mStoredGamesService = new StoredGamesManager(this);
             mGame = mStoredGamesService.loadCurrentGame();
+            
             if (mGame == null) {
-                // No game to attach signatures to -> exit gracefully
-                Toast.makeText(this, "No current game available.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "No current game found. Start a match first.", Toast.LENGTH_LONG).show();
                 finish();
                 return;
             }
