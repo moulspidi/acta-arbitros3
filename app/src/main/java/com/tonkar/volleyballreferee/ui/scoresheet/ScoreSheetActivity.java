@@ -1,5 +1,5 @@
 package com.tonkar.volleyballreferee.ui.scoresheet;
-
+import java.lang.reflect.Method;
 import android.widget.Toast;
 
 import android.app.Activity;
@@ -53,6 +53,43 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
 
             Log.i(Tags.SCORE_SHEET, "Create score sheet activity");
             setContentView(R.layout.activity_score_sheet);
+            boolean preSign = getIntent().getBooleanExtra("pre_sign_coaches", false);
+            if (preSign) {
+                // Try to call a method that might already exist in your project to open the coaches signature UI.
+                // We don't *require* it to exist; if it's not there, we just show a hint.
+                findViewById(android.R.id.content).post(() -> {
+                    boolean opened = false;
+                    try {
+                        // Common names you might have in your codebase:
+                        String[] candidates = {
+                                "showCoachSignatureDialog",
+                                "openCoachSignatureDialog",
+                                "openCoachesSignature",
+                                "showSignaturesDialog"
+                        };
+                        for (String name : candidates) {
+                            try {
+                                Method m = ScoreSheetActivity.this.getClass().getDeclaredMethod(name);
+                                m.setAccessible(true);
+                                m.invoke(ScoreSheetActivity.this);
+                                opened = true;
+                                break;
+                            } catch (NoSuchMethodException ignore) {
+                                // try next candidate
+                            }
+                        }
+                    } catch (Throwable ignore) {
+                        // fall through to Toast
+                    }
+                    if (!opened) {
+                        Toast.makeText(
+                                ScoreSheetActivity.this,
+                                getString(R.string.pre_sign_coaches_hint),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                });
+            }
 
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
