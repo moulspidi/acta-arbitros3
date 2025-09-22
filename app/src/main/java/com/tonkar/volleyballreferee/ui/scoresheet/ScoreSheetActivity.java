@@ -53,45 +53,48 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
     private ActivityResultLauncher<Intent> mSelectScoreSheetLogoResultLauncher;
     private ActivityResultLauncher<Intent> mCreatePdfScoreSheetResultLauncher;
 
-   @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // must read this first
+        // 1) Read the flag FIRST
         boolean preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
     
-        // try to load a stored game if one was passed
+        // 2) Try to get a stored game if an id was provided (may be null here)
         String gameId = getIntent().getStringExtra("game");
         StoredGamesService sgs = new StoredGamesManager(this);
-        IStoredGame mStoredGame = (gameId != null && !gameId.isEmpty()) ? sgs.getGame(gameId) : null;
+        mStoredGame = (gameId != null && !gameId.isEmpty()) ? sgs.getGame(gameId) : null;
     
+        // 3) Normal Android setup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_sheet);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     
-        // If we have a stored game, build the score sheet normally
+        // 4) If we DO have a stored game, build the sheet now
         if (mStoredGame != null) {
             mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
         }
     
-        // If NO stored game and NOT pre-sign → behave like before and exit
+        // 5) Only bail out when we have NO game AND we are NOT in pre-sign mode
         if (mStoredGame == null && !preSignMode) {
             Toast.makeText(this, R.string.no_game_to_display, Toast.LENGTH_LONG).show();
             finish();
             return;
         }
     
-        // When we are in pre-sign mode we *stay* here even without a stored game.
-        // Set orientation and toolbar like usual
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // 6) Toolbar, buttons, etc. (unchanged from your file)
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
+        UiUtils.updateToolbarLogo(toolbar,
+                (mStoredGame != null ? mStoredGame.getKind() : GameType.INDOOR),  // safe default
+                UsageType.NORMAL);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        if (ab != null) ab.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
     
         mSyncLayout = findViewById(R.id.score_sheet_sync_layout);
         mSyncLayout.setEnabled(false);
         mWebView = findViewById(R.id.score_sheet);
     
-        // Only try to render the score sheet HTML when we actually have a stored game
+        // Only render the HTML when a stored game exists
         if (mStoredGame != null) {
             loadScoreSheet(false);
         }
@@ -108,13 +111,13 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
         FloatingActionButton saveButton = findViewById(R.id.save_score_sheet_button);
         saveButton.setOnClickListener(v -> createPdfScoreSheet());
     
-        // Auto-open the coach signature dialog for pre-sign
+        // 7) Pre-sign: open the dialog immediately (no “no game” banner)
         if (preSignMode) {
             findViewById(android.R.id.content).post(this::showSignatureDialog);
             Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
         }
     
-        // …keep your ActivityResult launchers exactly as you had them …
+        // keep your ActivityResult launchers below as they were...
     }
 
     @Override
