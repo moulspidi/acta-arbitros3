@@ -1,5 +1,6 @@
 package com.tonkar.volleyballreferee.ui.game;
 
+import com.tonkar.volleyballreferee.engine.service.StoredGamesManager;
 import android.content.Intent;
 import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
@@ -223,17 +224,17 @@ public class GameActivity extends AppCompatActivity
             .setTitle(R.string.start_match_title)
             .setMessage(R.string.ask_pre_sign_coaches)
             .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-                // Go to the Score Sheet and auto-open the signature dialog
-                Intent sheet = new Intent(this, ScoreSheetActivity.class);
-                sheet.putExtra("pre_sign_coaches", true);
-                startActivity(sheet);
+               new StoredGamesManager(this).createCurrentGame(mGame);
+
+               Intent sheet = new Intent(this, ScoreSheetActivity.class);
+               sheet.putExtra("pre_sign_coaches", true);
+               startActivity(sheet);
             })
-            .setNeutralButton(R.string.start_without_signing, (d, w) -> {
-                // run your normal start flow
-                startMatchFromPrompt();
-            })
-            .setNegativeButton(android.R.string.cancel, null)
-            .show();
+           .setNeutralButton(R.string.start_without_signing, (d, w) -> {
+            startMatchFromPrompt(); // your code that starts + saves the game
+           })
+           .setNegativeButton(android.R.string.cancel, null)
+           .show();
     }
 
     @Override
