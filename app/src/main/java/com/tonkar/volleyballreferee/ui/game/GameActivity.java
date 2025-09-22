@@ -224,18 +224,14 @@ public class GameActivity extends AppCompatActivity
             .setTitle(R.string.start_match_title)
             .setMessage(R.string.ask_pre_sign_coaches)
             .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-            // Make sure the "current game" is persisted (safe to call if it already exists)
                     if (mStoredGamesService != null && mGame != null) {
+                        // persist a “current game” snapshot; safe even if match not started
                         mStoredGamesService.createCurrentGame(mGame);
                     }
-                
-                    // Use the game's id we’re playing right now
-                    String gameId = (mGame != null) ? mGame.getId() : null;
-                
                     Intent sheet = new Intent(this, ScoreSheetActivity.class);
                     sheet.putExtra("pre_sign_coaches", true);
-                    if (gameId != null) sheet.putExtra("game", gameId);
-                    startActivity(sheet);   // ← don’t forget this semicolon :)
+                    // don't pass a game id; we will allow null in ScoreSheetActivity
+                    startActivity(sheet);
            })
            .setNegativeButton(android.R.string.cancel, null)
            .show();
