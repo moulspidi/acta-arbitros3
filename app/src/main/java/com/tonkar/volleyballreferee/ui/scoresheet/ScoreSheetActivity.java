@@ -77,6 +77,11 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
 
             FloatingActionButton signatureButton = findViewById(R.id.sign_score_sheet_button);
             signatureButton.setOnClickListener(v -> showSignatureDialog());
+            if (getIntent().getBooleanExtra("pre_sign_coaches", false)) {
+                // open your existing signature dialog as soon as the view is ready
+                findViewById(android.R.id.content).post(this::showSignatureDialog);
+                Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
+            }
 
             FloatingActionButton observationButton = findViewById(R.id.score_sheet_observation_button);
             observationButton.setOnClickListener(v -> showObservationDialog());
