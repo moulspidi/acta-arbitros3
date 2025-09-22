@@ -1,7 +1,10 @@
 package com.tonkar.volleyballreferee.ui.game;
 
+import com.tonkar.volleyballreferee.engine.service.StoredGamesService;
+
 import com.tonkar.volleyballreferee.engine.service.StoredGamesManager;
-import com.tonkar.volleyballreferee.engine.storage.games.StoredGamesService;
+
+
 import android.content.Intent;
 import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
@@ -225,17 +228,13 @@ public class GameActivity extends AppCompatActivity
         .setTitle(R.string.start_match_title)
         .setMessage(R.string.ask_pre_sign_coaches)
         .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
-            // SAVE the game so the score sheet can read it
-            StoredGamesService store = new StoredGamesManager(this);
-            store.createCurrentGame(mGame);          // <-- critical line
-
+            StoredGamesService store = new StoredGamesManager(this); // service package
+            store.createCurrentGame(mGame);                          // save snapshot
             Intent sheet = new Intent(this, ScoreSheetActivity.class);
             sheet.putExtra("pre_sign_coaches", true);
             startActivity(sheet);
         })
-        .setNeutralButton(R.string.start_without_signing, (d, w) -> {
-            startMatchFromPrompt(); // your existing start+save logic
-        })
+        .setNeutralButton(R.string.start_without_signing, (d, w) -> startMatchFromPrompt())
         .setNegativeButton(android.R.string.cancel, null)
         .show();
     }
