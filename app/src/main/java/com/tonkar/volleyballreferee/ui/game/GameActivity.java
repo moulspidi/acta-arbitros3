@@ -1,6 +1,7 @@
 package com.tonkar.volleyballreferee.ui.game;
 import android.content.Intent;
 import com.tonkar.volleyballreferee.ui.scoresheet.ScoreSheetActivity;
+import androidx.appcompat.app.AlertDialog;
 import android.widget.Toast;
 
 import android.content.SharedPreferences;
@@ -203,7 +204,23 @@ public class GameActivity extends AppCompatActivity
             }
         });
     }
-
+    private void onClickStartWithPrompt() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.start_match_title)            // add strings below if you don't have them
+            .setMessage(R.string.ask_pre_sign_coaches)
+            .setPositiveButton(R.string.sign_coaches_first, (d, w) -> {
+                // Go to the Score Sheet and auto-open the signature dialog
+                Intent sheet = new Intent(this, ScoreSheetActivity.class);
+                sheet.putExtra("pre_sign_coaches", true);
+                startActivity(sheet);
+            })
+            .setNeutralButton(R.string.start_without_signing, (d, w) -> {
+                // your original start
+                startMatch();
+            })
+            .setNegativeButton(android.R.string.cancel, null)
+            .show();
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -245,7 +262,7 @@ public class GameActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_game_action_menu) {
-            showGameActionMenu();
+            onClickStartWithPrompt();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
