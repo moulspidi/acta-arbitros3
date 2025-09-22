@@ -56,51 +56,32 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    
-        // UI first
         setContentView(R.layout.activity_score_sheet);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     
         preSignMode = getIntent().getBooleanExtra("pre_sign_coaches", false);
     
-        // ---- Get a game to render ----
+        // Always load from a stored-game id
         StoredGamesService s = new StoredGamesManager(this);
-    
-        // 1) Try an explicit stored-game id (used when opening from history)
         String gameId = getIntent().getStringExtra("game");
         mStoredGame = (gameId != null) ? s.getGame(gameId) : null;
     
-        // 2) If not present, fall back to the CURRENT game (used when coming
-        //    from "Sign coaches first" before the match actually starts)
-        currentGame = (mStoredGame == null) ? s.loadCurrentGame() : null;
-    
-        if (mStoredGame != null) {
-            mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
-        } else if (currentGame != null) {
-            // Your ScoreSheetBuilder must support IGame; if not, keep a small
-            // builder overload or convert currentGame to your StoredGame type.
-            mScoreSheetBuilder = new ScoreSheetBuilder(this, currentGame);
-        } else {
-            Toast.makeText(this, "No game available to show.", Toast.LENGTH_LONG).show();
+        if (mStoredGame == null) {
+            Toast.makeText(this, "No game to display. Start/Save a game first.", Toast.LENGTH_LONG).show();
             finish();
             return;
         }
     
-        // ---- Toolbar ----
+        mScoreSheetBuilder = new ScoreSheetBuilder(this, mStoredGame);
+    
+        // ---- normal UI init below ----
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
-        // Use whichever source we actually have
-        UsageType usage = UsageType.NORMAL;
-        UiUtils.updateToolbarLogo(
-                toolbar,
-                (mStoredGame != null) ? mStoredGame.getKind() : currentGame.getKind(),
-                usage
-        );
+        UiUtils.updateToolbarLogo(toolbar, mStoredGame.getKind(), UsageType.NORMAL);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) ab.setDisplayHomeAsUpEnabled(true);
     
-        // ---- Views / actions ----
         mSyncLayout = findViewById(R.id.score_sheet_sync_layout);
         mSyncLayout.setEnabled(false);
     
@@ -113,7 +94,6 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
         FloatingActionButton signatureButton = findViewById(R.id.sign_score_sheet_button);
         signatureButton.setOnClickListener(v -> showSignatureDialog());
     
-        // Auto-open signature ONCE if we came from “Sign coaches first”
         if (preSignMode) {
             findViewById(android.R.id.content).post(this::showSignatureDialog);
             Toast.makeText(this, R.string.pre_sign_coaches_hint, Toast.LENGTH_LONG).show();
@@ -125,37 +105,7 @@ public class ScoreSheetActivity extends ProgressIndicatorActivity {
         FloatingActionButton saveButton = findViewById(R.id.save_score_sheet_button);
         saveButton.setOnClickListener(v -> createPdfScoreSheet());
     
-        mSelectScoreSheetLogoResultLauncher =
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        if (data != null) {
-                            try {
-                                Uri imageUri = data.getData();
-                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, stream);
-                                String base64Image = Base64.encodeToString(stream.toByteArray(), Base64.NO_WRAP);
-                                mScoreSheetBuilder.setLogo(base64Image);
-                                loadScoreSheet(false);
-                            } catch (IOException e) {
-                                Log.e(Tags.SCORE_SHEET, "Exception while opening the logo", e);
-                            }
-                        }
-                    }
-                });
-    
-        mCreatePdfScoreSheetResultLauncher =
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        if (data != null) {
-                            ScoreSheetPdfConverter conv =
-                                    new ScoreSheetPdfConverter(ScoreSheetActivity.this, data.getData());
-                            conv.convert(mScoreSheetBuilder.createScoreSheet());
-                        }
-                    }
-                });
+        // … keep your result launchers as you had …
     }
 
     @Override
